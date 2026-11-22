@@ -1,0 +1,13 @@
+clip_id,clip_title,reviewer_decision,reviewer_guideline_reference,reviewer_harm_start_seconds,reviewer_harm_end_seconds,deciding_rule,rules_checked,threshold_met,policy_action,matches_reviewer
+CLIP-001,street fight compilation #4,remove,Violent or graphic content policy,8,239,VIO-01,VIO-01,"Compilation of 14 cuts; harm span 231 of 247 s (over half); stomps on downed men; cheering captions",remove,true
+CLIP-002,fun kitchen experiment,remove,Harmful or dangerous content policy,100,118,DNG-01,DNG-01,"Bleach and ammonia mixed and fumes inhaled; kitchen setting; light-hearted title; no warning",remove,true
+CLIP-003,Ava's first gymnastics meet!!,allow,Child safety policy,,,CSAM-ADJ-04,CSAM-ADJ-01; CSAM-ADJ-02; CSAM-ADJ-04,"Minor in organised sport, fully clothed, no sexualising framing or comments, no danger",allow,true
+CLIP-004,Road rage caught on dashcam - Mumbai,restrict,Violent or graphic content policy,71,73,VIO-04,VIO-01; VIO-04,"Single punch, harm span 2 s, non-fatal, no replays, no glorifying signal; no news context",restrict,true
+CLIP-005,night routine aesthetic vlog,remove,Suicide and self-harm policy,125,139,SH-01,SH-01; SH-02,"Fresh cuts and blade on screen 14 s; soft music and aesthetic framing also meet SH-02",remove,true
+CLIP-006,How surgeons treat severe burns | Documentary,allow,EDSA exception,148,152,NEWS-04,NEWS-01; NEWS-03; NEWS-04,"Surgeon narration + documentary title (2 signals); burn wound 4 s, clinically framed, no lingering close-up",allow,true
+CLIP-007,Protest clash in city centre - evening bulletin,restrict,EDSA exception,100,118,NEWS-02,VIO-01; NEWS-01; NEWS-05; NEWS-02,"Reporter narration + outlet chyron throughout (2 signals); real protest violence 18 s; no void condition",restrict,true
+CLIP-008,zombie bite SFX makeup tutorial,allow,Violent or graphic content policy,,,VIO-05,VIO-05,"Prosthetic latex and fake blood; nothing real shown",allow,true
+CLIP-009,toddler rides the roof rack lol,remove,Child safety policy,22,49,CSAM-ADJ-02,CSAM-ADJ-02,"Minor on a moving vehicle's roof rack for 27 s; played for laughs",remove,true
+CLIP-010,my recovery story - 2 years clean,restrict,Suicide and self-harm policy,38,41,SH-04,SH-01; SH-02; SH-03; SH-04,"Healed scars only, 3 s; recovery framing with helpline card; no method",restrict,true
+CLIP-011,Stabbing outside Birmingham New Street - local news update,restrict,EDSA exception,54,61,NEWS-02,VIO-01; VIO-03; NEWS-01; NEWS-05; NEWS-02,"Anchor voiceover + outlet logo (2 signals); blood on pavement 7 s; no void condition",restrict,true
+CLIP-012,Amateur MMA bout - full fight Sao Paulo,allow,Violent or graphic content policy,212,215,VIO-06,VIO-01; VIO-06,"Sanctioned bout with referee; knockout 3 s at normal speed; no gore or lingering injury",allow,true
