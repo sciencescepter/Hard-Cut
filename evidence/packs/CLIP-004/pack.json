@@ -1,0 +1,100 @@
+{
+  "clip_id": "CLIP-004",
+  "source": {
+    "dataset": "XD-Violence (test set)",
+    "xd_video": "v=OE9t3XImErk__#1_label_B1-0-0",
+    "title": "Man kicks girlfriend on Jersey City street corner",
+    "match_type": "category match",
+    "why_it_fits": "One short real assault on a street at night, filmed on a phone, with a graphic-content warning card and no news narration, the shape of VIO-04. XD marks a single violent span (frames 193-290, about 4 s).",
+    "duration_seconds": 23.21,
+    "fps": 24.0
+  },
+  "frames": {
+    "every_seconds": 2,
+    "count": 12,
+    "items": [
+      {
+        "t": 0.0,
+        "timestamp": "00:00",
+        "file": "frames/t0000s.jpg"
+      },
+      {
+        "t": 2.0,
+        "timestamp": "00:02",
+        "file": "frames/t0002s.jpg"
+      },
+      {
+        "t": 4.0,
+        "timestamp": "00:04",
+        "file": "frames/t0004s.jpg"
+      },
+      {
+        "t": 6.0,
+        "timestamp": "00:06",
+        "file": "frames/t0006s.jpg"
+      },
+      {
+        "t": 8.0,
+        "timestamp": "00:08",
+        "file": "frames/t0008s.jpg"
+      },
+      {
+        "t": 10.0,
+        "timestamp": "00:10",
+        "file": "frames/t0010s.jpg"
+      },
+      {
+        "t": 12.0,
+        "timestamp": "00:12",
+        "file": "frames/t0012s.jpg"
+      },
+      {
+        "t": 14.0,
+        "timestamp": "00:14",
+        "file": "frames/t0014s.jpg"
+      },
+      {
+        "t": 16.0,
+        "timestamp": "00:16",
+        "file": "frames/t0016s.jpg"
+      },
+      {
+        "t": 18.0,
+        "timestamp": "00:18",
+        "file": "frames/t0018s.jpg"
+      },
+      {
+        "t": 20.0,
+        "timestamp": "00:20",
+        "file": "frames/t0020s.jpg"
+      },
+      {
+        "t": 22.0,
+        "timestamp": "00:22",
+        "file": "frames/t0022s.jpg"
+      }
+    ]
+  },
+  "transcript": {
+    "file": "transcript.json",
+    "segments": 0,
+    "language": "en"
+  },
+  "answer_key": {
+    "xd_violent_segments": [
+      {
+        "start_frame": 193,
+        "end_frame": 290,
+        "start": 8.04,
+        "end": 12.08
+      }
+    ],
+    "lena": {
+      "clip_title": "Road rage caught on dashcam - Mumbai",
+      "decision": "restrict",
+      "guideline": "Violent or graphic content policy",
+      "harm_start_seconds": "71",
+      "harm_end_seconds": "73"
+    }
+  }
+}

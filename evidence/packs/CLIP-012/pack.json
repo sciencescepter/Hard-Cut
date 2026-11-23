@@ -1,0 +1,291 @@
+{
+  "clip_id": "CLIP-012",
+  "source": {
+    "dataset": "XD-Violence (test set)",
+    "xd_video": "v=osjdmjNJUdg__#1_label_B1-0-0",
+    "title": "The Big NHL Fight | Erik Cernak vs. Tom Wilson",
+    "match_type": "category match",
+    "why_it_fits": "A fight inside a sanctioned professional game with officials present, the case VIO-06 covers. XD has no MMA footage. XD marks two violent spans.",
+    "duration_seconds": 96.67,
+    "fps": 24.0
+  },
+  "frames": {
+    "every_seconds": 2,
+    "count": 49,
+    "items": [
+      {
+        "t": 0.0,
+        "timestamp": "00:00",
+        "file": "frames/t0000s.jpg"
+      },
+      {
+        "t": 2.0,
+        "timestamp": "00:02",
+        "file": "frames/t0002s.jpg"
+      },
+      {
+        "t": 4.0,
+        "timestamp": "00:04",
+        "file": "frames/t0004s.jpg"
+      },
+      {
+        "t": 6.0,
+        "timestamp": "00:06",
+        "file": "frames/t0006s.jpg"
+      },
+      {
+        "t": 8.0,
+        "timestamp": "00:08",
+        "file": "frames/t0008s.jpg"
+      },
+      {
+        "t": 10.0,
+        "timestamp": "00:10",
+        "file": "frames/t0010s.jpg"
+      },
+      {
+        "t": 12.0,
+        "timestamp": "00:12",
+        "file": "frames/t0012s.jpg"
+      },
+      {
+        "t": 14.0,
+        "timestamp": "00:14",
+        "file": "frames/t0014s.jpg"
+      },
+      {
+        "t": 16.0,
+        "timestamp": "00:16",
+        "file": "frames/t0016s.jpg"
+      },
+      {
+        "t": 18.0,
+        "timestamp": "00:18",
+        "file": "frames/t0018s.jpg"
+      },
+      {
+        "t": 20.0,
+        "timestamp": "00:20",
+        "file": "frames/t0020s.jpg"
+      },
+      {
+        "t": 22.0,
+        "timestamp": "00:22",
+        "file": "frames/t0022s.jpg"
+      },
+      {
+        "t": 24.0,
+        "timestamp": "00:24",
+        "file": "frames/t0024s.jpg"
+      },
+      {
+        "t": 26.0,
+        "timestamp": "00:26",
+        "file": "frames/t0026s.jpg"
+      },
+      {
+        "t": 28.0,
+        "timestamp": "00:28",
+        "file": "frames/t0028s.jpg"
+      },
+      {
+        "t": 30.0,
+        "timestamp": "00:30",
+        "file": "frames/t0030s.jpg"
+      },
+      {
+        "t": 32.0,
+        "timestamp": "00:32",
+        "file": "frames/t0032s.jpg"
+      },
+      {
+        "t": 34.0,
+        "timestamp": "00:34",
+        "file": "frames/t0034s.jpg"
+      },
+      {
+        "t": 36.0,
+        "timestamp": "00:36",
+        "file": "frames/t0036s.jpg"
+      },
+      {
+        "t": 38.0,
+        "timestamp": "00:38",
+        "file": "frames/t0038s.jpg"
+      },
+      {
+        "t": 40.0,
+        "timestamp": "00:40",
+        "file": "frames/t0040s.jpg"
+      },
+      {
+        "t": 42.0,
+        "timestamp": "00:42",
+        "file": "frames/t0042s.jpg"
+      },
+      {
+        "t": 44.0,
+        "timestamp": "00:44",
+        "file": "frames/t0044s.jpg"
+      },
+      {
+        "t": 46.0,
+        "timestamp": "00:46",
+        "file": "frames/t0046s.jpg"
+      },
+      {
+        "t": 48.0,
+        "timestamp": "00:48",
+        "file": "frames/t0048s.jpg"
+      },
+      {
+        "t": 50.0,
+        "timestamp": "00:50",
+        "file": "frames/t0050s.jpg"
+      },
+      {
+        "t": 52.0,
+        "timestamp": "00:52",
+        "file": "frames/t0052s.jpg"
+      },
+      {
+        "t": 54.0,
+        "timestamp": "00:54",
+        "file": "frames/t0054s.jpg"
+      },
+      {
+        "t": 56.0,
+        "timestamp": "00:56",
+        "file": "frames/t0056s.jpg"
+      },
+      {
+        "t": 58.0,
+        "timestamp": "00:58",
+        "file": "frames/t0058s.jpg"
+      },
+      {
+        "t": 60.0,
+        "timestamp": "01:00",
+        "file": "frames/t0060s.jpg"
+      },
+      {
+        "t": 62.0,
+        "timestamp": "01:02",
+        "file": "frames/t0062s.jpg"
+      },
+      {
+        "t": 64.0,
+        "timestamp": "01:04",
+        "file": "frames/t0064s.jpg"
+      },
+      {
+        "t": 66.0,
+        "timestamp": "01:06",
+        "file": "frames/t0066s.jpg"
+      },
+      {
+        "t": 68.0,
+        "timestamp": "01:08",
+        "file": "frames/t0068s.jpg"
+      },
+      {
+        "t": 70.0,
+        "timestamp": "01:10",
+        "file": "frames/t0070s.jpg"
+      },
+      {
+        "t": 72.0,
+        "timestamp": "01:12",
+        "file": "frames/t0072s.jpg"
+      },
+      {
+        "t": 74.0,
+        "timestamp": "01:14",
+        "file": "frames/t0074s.jpg"
+      },
+      {
+        "t": 76.0,
+        "timestamp": "01:16",
+        "file": "frames/t0076s.jpg"
+      },
+      {
+        "t": 78.0,
+        "timestamp": "01:18",
+        "file": "frames/t0078s.jpg"
+      },
+      {
+        "t": 80.0,
+        "timestamp": "01:20",
+        "file": "frames/t0080s.jpg"
+      },
+      {
+        "t": 82.0,
+        "timestamp": "01:22",
+        "file": "frames/t0082s.jpg"
+      },
+      {
+        "t": 84.0,
+        "timestamp": "01:24",
+        "file": "frames/t0084s.jpg"
+      },
+      {
+        "t": 86.0,
+        "timestamp": "01:26",
+        "file": "frames/t0086s.jpg"
+      },
+      {
+        "t": 88.0,
+        "timestamp": "01:28",
+        "file": "frames/t0088s.jpg"
+      },
+      {
+        "t": 90.0,
+        "timestamp": "01:30",
+        "file": "frames/t0090s.jpg"
+      },
+      {
+        "t": 92.0,
+        "timestamp": "01:32",
+        "file": "frames/t0092s.jpg"
+      },
+      {
+        "t": 94.0,
+        "timestamp": "01:34",
+        "file": "frames/t0094s.jpg"
+      },
+      {
+        "t": 96.0,
+        "timestamp": "01:36",
+        "file": "frames/t0096s.jpg"
+      }
+    ]
+  },
+  "transcript": {
+    "file": "transcript.json",
+    "segments": 40,
+    "language": "en"
+  },
+  "answer_key": {
+    "xd_violent_segments": [
+      {
+        "start_frame": 191,
+        "end_frame": 856,
+        "start": 7.96,
+        "end": 35.67
+      },
+      {
+        "start_frame": 1380,
+        "end_frame": 1985,
+        "start": 57.5,
+        "end": 82.71
+      }
+    ],
+    "lena": {
+      "clip_title": "Amateur MMA bout - full fight Sao Paulo",
+      "decision": "allow",
+      "guideline": "Violent or graphic content policy",
+      "harm_start_seconds": "212",
+      "harm_end_seconds": "215"
+    }
+  }
+}

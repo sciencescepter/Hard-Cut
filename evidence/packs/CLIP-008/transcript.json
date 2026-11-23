@@ -1,0 +1,61 @@
+{
+  "language": "en",
+  "model": "faster-whisper small",
+  "segments": [
+    {
+      "start": 54.96,
+      "end": 55.96,
+      "text": "Not about takin' it."
+    },
+    {
+      "start": 55.96,
+      "end": 56.96,
+      "text": "Not right."
+    },
+    {
+      "start": 56.96,
+      "end": 58.96,
+      "text": "But I don't do so well in tight spaces, sir."
+    },
+    {
+      "start": 58.96,
+      "end": 62.85,
+      "text": "Goin' to prison worries me."
+    },
+    {
+      "start": 62.85,
+      "end": 63.85,
+      "text": "Shouldn't have bruised her face."
+    },
+    {
+      "start": 63.85,
+      "end": 64.85,
+      "text": "Really?"
+    },
+    {
+      "start": 64.85,
+      "end": 66.85,
+      "text": "What a blood to have kept it the way it was."
+    },
+    {
+      "start": 66.85,
+      "end": 68.85,
+      "text": "Keep the bitch, cause I'm done with it."
+    },
+    {
+      "start": 71.85,
+      "end": 121.81,
+      "text": "What do I do for a living?"
+    },
+    {
+      "start": 121.81,
+      "end": 124.66,
+      "text": "Not perfect."
+    },
+    {
+      "start": 124.66,
+      "end": 125.66,
+      "text": "You should have waited."
+    }
+  ]
+}

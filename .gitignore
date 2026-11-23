@@ -7,3 +7,12 @@ __pycache__/
 .vscode/
 .idea/
 .pytest_cache/
+
+# XD-Violence videos stay local (no licence to redistribute). The name lists are kept.
+xd_violence/*
+!xd_violence/lists/
+# Frames are stills of real violence: built locally, never committed.
+evidence/packs/*/frames/
+
+# Local work not part of the evidence-pack deliverable (e.g. the stopped Gemini run)
+local_only/

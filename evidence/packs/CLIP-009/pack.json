@@ -1,0 +1,143 @@
+{
+  "clip_id": "CLIP-009",
+  "source": {
+    "dataset": "XD-Violence (test set)",
+    "xd_video": "v=-tqHsoEoUyY__#1_label_A",
+    "title": "A nice relaxing drive through town",
+    "match_type": "stand-in (no category match)",
+    "why_it_fits": "XD-Violence has no child-endangerment category, and no Abuse video was considered. Ordinary driving footage stands in for the moving-car setting only. Its decision is not comparable with Lena's.",
+    "duration_seconds": 42.12,
+    "fps": 24.0
+  },
+  "frames": {
+    "every_seconds": 2,
+    "count": 22,
+    "items": [
+      {
+        "t": 0.0,
+        "timestamp": "00:00",
+        "file": "frames/t0000s.jpg"
+      },
+      {
+        "t": 2.0,
+        "timestamp": "00:02",
+        "file": "frames/t0002s.jpg"
+      },
+      {
+        "t": 4.0,
+        "timestamp": "00:04",
+        "file": "frames/t0004s.jpg"
+      },
+      {
+        "t": 6.0,
+        "timestamp": "00:06",
+        "file": "frames/t0006s.jpg"
+      },
+      {
+        "t": 8.0,
+        "timestamp": "00:08",
+        "file": "frames/t0008s.jpg"
+      },
+      {
+        "t": 10.0,
+        "timestamp": "00:10",
+        "file": "frames/t0010s.jpg"
+      },
+      {
+        "t": 12.0,
+        "timestamp": "00:12",
+        "file": "frames/t0012s.jpg"
+      },
+      {
+        "t": 14.0,
+        "timestamp": "00:14",
+        "file": "frames/t0014s.jpg"
+      },
+      {
+        "t": 16.0,
+        "timestamp": "00:16",
+        "file": "frames/t0016s.jpg"
+      },
+      {
+        "t": 18.0,
+        "timestamp": "00:18",
+        "file": "frames/t0018s.jpg"
+      },
+      {
+        "t": 20.0,
+        "timestamp": "00:20",
+        "file": "frames/t0020s.jpg"
+      },
+      {
+        "t": 22.0,
+        "timestamp": "00:22",
+        "file": "frames/t0022s.jpg"
+      },
+      {
+        "t": 24.0,
+        "timestamp": "00:24",
+        "file": "frames/t0024s.jpg"
+      },
+      {
+        "t": 26.0,
+        "timestamp": "00:26",
+        "file": "frames/t0026s.jpg"
+      },
+      {
+        "t": 28.0,
+        "timestamp": "00:28",
+        "file": "frames/t0028s.jpg"
+      },
+      {
+        "t": 30.0,
+        "timestamp": "00:30",
+        "file": "frames/t0030s.jpg"
+      },
+      {
+        "t": 32.0,
+        "timestamp": "00:32",
+        "file": "frames/t0032s.jpg"
+      },
+      {
+        "t": 34.0,
+        "timestamp": "00:34",
+        "file": "frames/t0034s.jpg"
+      },
+      {
+        "t": 36.0,
+        "timestamp": "00:36",
+        "file": "frames/t0036s.jpg"
+      },
+      {
+        "t": 38.0,
+        "timestamp": "00:38",
+        "file": "frames/t0038s.jpg"
+      },
+      {
+        "t": 40.0,
+        "timestamp": "00:40",
+        "file": "frames/t0040s.jpg"
+      },
+      {
+        "t": 42.0,
+        "timestamp": "00:42",
+        "file": "frames/t0042s.jpg"
+      }
+    ]
+  },
+  "transcript": {
+    "file": "transcript.json",
+    "segments": 0,
+    "language": "en"
+  },
+  "answer_key": {
+    "xd_violent_segments": [],
+    "lena": {
+      "clip_title": "toddler rides the roof rack lol",
+      "decision": "remove",
+      "guideline": "Child safety policy",
+      "harm_start_seconds": "22",
+      "harm_end_seconds": "49"
+    }
+  }
+}

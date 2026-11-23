@@ -1,0 +1,2 @@
+# Gemini model used by src/gemini_check.py (newest Flash model that works on the free key)
+gemini_model: gemini-3.8-flash

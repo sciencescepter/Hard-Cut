@@ -1,0 +1,523 @@
+{
+  "clip_id": "CLIP-003",
+  "source": {
+    "dataset": "XD-Violence (test set)",
+    "xd_video": "v=hdy5kZ5dwj8__#1_label_A",
+    "title": "How to Dress a Youth Hockey Goaltender",
+    "match_type": "stand-in (closest setting)",
+    "why_it_fits": "A minor in an ordinary organised-sport setting with nothing harmful, the situation CSAM-ADJ-04 allows. No XD Abuse video was considered for a child clip.",
+    "duration_seconds": 194.75,
+    "fps": 24.0
+  },
+  "frames": {
+    "every_seconds": 2,
+    "count": 98,
+    "items": [
+      {
+        "t": 0.0,
+        "timestamp": "00:00",
+        "file": "frames/t0000s.jpg"
+      },
+      {
+        "t": 2.0,
+        "timestamp": "00:02",
+        "file": "frames/t0002s.jpg"
+      },
+      {
+        "t": 4.0,
+        "timestamp": "00:04",
+        "file": "frames/t0004s.jpg"
+      },
+      {
+        "t": 6.0,
+        "timestamp": "00:06",
+        "file": "frames/t0006s.jpg"
+      },
+      {
+        "t": 8.0,
+        "timestamp": "00:08",
+        "file": "frames/t0008s.jpg"
+      },
+      {
+        "t": 10.0,
+        "timestamp": "00:10",
+        "file": "frames/t0010s.jpg"
+      },
+      {
+        "t": 12.0,
+        "timestamp": "00:12",
+        "file": "frames/t0012s.jpg"
+      },
+      {
+        "t": 14.0,
+        "timestamp": "00:14",
+        "file": "frames/t0014s.jpg"
+      },
+      {
+        "t": 16.0,
+        "timestamp": "00:16",
+        "file": "frames/t0016s.jpg"
+      },
+      {
+        "t": 18.0,
+        "timestamp": "00:18",
+        "file": "frames/t0018s.jpg"
+      },
+      {
+        "t": 20.0,
+        "timestamp": "00:20",
+        "file": "frames/t0020s.jpg"
+      },
+      {
+        "t": 22.0,
+        "timestamp": "00:22",
+        "file": "frames/t0022s.jpg"
+      },
+      {
+        "t": 24.0,
+        "timestamp": "00:24",
+        "file": "frames/t0024s.jpg"
+      },
+      {
+        "t": 26.0,
+        "timestamp": "00:26",
+        "file": "frames/t0026s.jpg"
+      },
+      {
+        "t": 28.0,
+        "timestamp": "00:28",
+        "file": "frames/t0028s.jpg"
+      },
+      {
+        "t": 30.0,
+        "timestamp": "00:30",
+        "file": "frames/t0030s.jpg"
+      },
+      {
+        "t": 32.0,
+        "timestamp": "00:32",
+        "file": "frames/t0032s.jpg"
+      },
+      {
+        "t": 34.0,
+        "timestamp": "00:34",
+        "file": "frames/t0034s.jpg"
+      },
+      {
+        "t": 36.0,
+        "timestamp": "00:36",
+        "file": "frames/t0036s.jpg"
+      },
+      {
+        "t": 38.0,
+        "timestamp": "00:38",
+        "file": "frames/t0038s.jpg"
+      },
+      {
+        "t": 40.0,
+        "timestamp": "00:40",
+        "file": "frames/t0040s.jpg"
+      },
+      {
+        "t": 42.0,
+        "timestamp": "00:42",
+        "file": "frames/t0042s.jpg"
+      },
+      {
+        "t": 44.0,
+        "timestamp": "00:44",
+        "file": "frames/t0044s.jpg"
+      },
+      {
+        "t": 46.0,
+        "timestamp": "00:46",
+        "file": "frames/t0046s.jpg"
+      },
+      {
+        "t": 48.0,
+        "timestamp": "00:48",
+        "file": "frames/t0048s.jpg"
+      },
+      {
+        "t": 50.0,
+        "timestamp": "00:50",
+        "file": "frames/t0050s.jpg"
+      },
+      {
+        "t": 52.0,
+        "timestamp": "00:52",
+        "file": "frames/t0052s.jpg"
+      },
+      {
+        "t": 54.0,
+        "timestamp": "00:54",
+        "file": "frames/t0054s.jpg"
+      },
+      {
+        "t": 56.0,
+        "timestamp": "00:56",
+        "file": "frames/t0056s.jpg"
+      },
+      {
+        "t": 58.0,
+        "timestamp": "00:58",
+        "file": "frames/t0058s.jpg"
+      },
+      {
+        "t": 60.0,
+        "timestamp": "01:00",
+        "file": "frames/t0060s.jpg"
+      },
+      {
+        "t": 62.0,
+        "timestamp": "01:02",
+        "file": "frames/t0062s.jpg"
+      },
+      {
+        "t": 64.0,
+        "timestamp": "01:04",
+        "file": "frames/t0064s.jpg"
+      },
+      {
+        "t": 66.0,
+        "timestamp": "01:06",
+        "file": "frames/t0066s.jpg"
+      },
+      {
+        "t": 68.0,
+        "timestamp": "01:08",
+        "file": "frames/t0068s.jpg"
+      },
+      {
+        "t": 70.0,
+        "timestamp": "01:10",
+        "file": "frames/t0070s.jpg"
+      },
+      {
+        "t": 72.0,
+        "timestamp": "01:12",
+        "file": "frames/t0072s.jpg"
+      },
+      {
+        "t": 74.0,
+        "timestamp": "01:14",
+        "file": "frames/t0074s.jpg"
+      },
+      {
+        "t": 76.0,
+        "timestamp": "01:16",
+        "file": "frames/t0076s.jpg"
+      },
+      {
+        "t": 78.0,
+        "timestamp": "01:18",
+        "file": "frames/t0078s.jpg"
+      },
+      {
+        "t": 80.0,
+        "timestamp": "01:20",
+        "file": "frames/t0080s.jpg"
+      },
+      {
+        "t": 82.0,
+        "timestamp": "01:22",
+        "file": "frames/t0082s.jpg"
+      },
+      {
+        "t": 84.0,
+        "timestamp": "01:24",
+        "file": "frames/t0084s.jpg"
+      },
+      {
+        "t": 86.0,
+        "timestamp": "01:26",
+        "file": "frames/t0086s.jpg"
+      },
+      {
+        "t": 88.0,
+        "timestamp": "01:28",
+        "file": "frames/t0088s.jpg"
+      },
+      {
+        "t": 90.0,
+        "timestamp": "01:30",
+        "file": "frames/t0090s.jpg"
+      },
+      {
+        "t": 92.0,
+        "timestamp": "01:32",
+        "file": "frames/t0092s.jpg"
+      },
+      {
+        "t": 94.0,
+        "timestamp": "01:34",
+        "file": "frames/t0094s.jpg"
+      },
+      {
+        "t": 96.0,
+        "timestamp": "01:36",
+        "file": "frames/t0096s.jpg"
+      },
+      {
+        "t": 98.0,
+        "timestamp": "01:38",
+        "file": "frames/t0098s.jpg"
+      },
+      {
+        "t": 100.0,
+        "timestamp": "01:40",
+        "file": "frames/t0100s.jpg"
+      },
+      {
+        "t": 102.0,
+        "timestamp": "01:42",
+        "file": "frames/t0102s.jpg"
+      },
+      {
+        "t": 104.0,
+        "timestamp": "01:44",
+        "file": "frames/t0104s.jpg"
+      },
+      {
+        "t": 106.0,
+        "timestamp": "01:46",
+        "file": "frames/t0106s.jpg"
+      },
+      {
+        "t": 108.0,
+        "timestamp": "01:48",
+        "file": "frames/t0108s.jpg"
+      },
+      {
+        "t": 110.0,
+        "timestamp": "01:50",
+        "file": "frames/t0110s.jpg"
+      },
+      {
+        "t": 112.0,
+        "timestamp": "01:52",
+        "file": "frames/t0112s.jpg"
+      },
+      {
+        "t": 114.0,
+        "timestamp": "01:54",
+        "file": "frames/t0114s.jpg"
+      },
+      {
+        "t": 116.0,
+        "timestamp": "01:56",
+        "file": "frames/t0116s.jpg"
+      },
+      {
+        "t": 118.0,
+        "timestamp": "01:58",
+        "file": "frames/t0118s.jpg"
+      },
+      {
+        "t": 120.0,
+        "timestamp": "02:00",
+        "file": "frames/t0120s.jpg"
+      },
+      {
+        "t": 122.0,
+        "timestamp": "02:02",
+        "file": "frames/t0122s.jpg"
+      },
+      {
+        "t": 124.0,
+        "timestamp": "02:04",
+        "file": "frames/t0124s.jpg"
+      },
+      {
+        "t": 126.0,
+        "timestamp": "02:06",
+        "file": "frames/t0126s.jpg"
+      },
+      {
+        "t": 128.0,
+        "timestamp": "02:08",
+        "file": "frames/t0128s.jpg"
+      },
+      {
+        "t": 130.0,
+        "timestamp": "02:10",
+        "file": "frames/t0130s.jpg"
+      },
+      {
+        "t": 132.0,
+        "timestamp": "02:12",
+        "file": "frames/t0132s.jpg"
+      },
+      {
+        "t": 134.0,
+        "timestamp": "02:14",
+        "file": "frames/t0134s.jpg"
+      },
+      {
+        "t": 136.0,
+        "timestamp": "02:16",
+        "file": "frames/t0136s.jpg"
+      },
+      {
+        "t": 138.0,
+        "timestamp": "02:18",
+        "file": "frames/t0138s.jpg"
+      },
+      {
+        "t": 140.0,
+        "timestamp": "02:20",
+        "file": "frames/t0140s.jpg"
+      },
+      {
+        "t": 142.0,
+        "timestamp": "02:22",
+        "file": "frames/t0142s.jpg"
+      },
+      {
+        "t": 144.0,
+        "timestamp": "02:24",
+        "file": "frames/t0144s.jpg"
+      },
+      {
+        "t": 146.0,
+        "timestamp": "02:26",
+        "file": "frames/t0146s.jpg"
+      },
+      {
+        "t": 148.0,
+        "timestamp": "02:28",
+        "file": "frames/t0148s.jpg"
+      },
+      {
+        "t": 150.0,
+        "timestamp": "02:30",
+        "file": "frames/t0150s.jpg"
+      },
+      {
+        "t": 152.0,
+        "timestamp": "02:32",
+        "file": "frames/t0152s.jpg"
+      },
+      {
+        "t": 154.0,
+        "timestamp": "02:34",
+        "file": "frames/t0154s.jpg"
+      },
+      {
+        "t": 156.0,
+        "timestamp": "02:36",
+        "file": "frames/t0156s.jpg"
+      },
+      {
+        "t": 158.0,
+        "timestamp": "02:38",
+        "file": "frames/t0158s.jpg"
+      },
+      {
+        "t": 160.0,
+        "timestamp": "02:40",
+        "file": "frames/t0160s.jpg"
+      },
+      {
+        "t": 162.0,
+        "timestamp": "02:42",
+        "file": "frames/t0162s.jpg"
+      },
+      {
+        "t": 164.0,
+        "timestamp": "02:44",
+        "file": "frames/t0164s.jpg"
+      },
+      {
+        "t": 166.0,
+        "timestamp": "02:46",
+        "file": "frames/t0166s.jpg"
+      },
+      {
+        "t": 168.0,
+        "timestamp": "02:48",
+        "file": "frames/t0168s.jpg"
+      },
+      {
+        "t": 170.0,
+        "timestamp": "02:50",
+        "file": "frames/t0170s.jpg"
+      },
+      {
+        "t": 172.0,
+        "timestamp": "02:52",
+        "file": "frames/t0172s.jpg"
+      },
+      {
+        "t": 174.0,
+        "timestamp": "02:54",
+        "file": "frames/t0174s.jpg"
+      },
+      {
+        "t": 176.0,
+        "timestamp": "02:56",
+        "file": "frames/t0176s.jpg"
+      },
+      {
+        "t": 178.0,
+        "timestamp": "02:58",
+        "file": "frames/t0178s.jpg"
+      },
+      {
+        "t": 180.0,
+        "timestamp": "03:00",
+        "file": "frames/t0180s.jpg"
+      },
+      {
+        "t": 182.0,
+        "timestamp": "03:02",
+        "file": "frames/t0182s.jpg"
+      },
+      {
+        "t": 184.0,
+        "timestamp": "03:04",
+        "file": "frames/t0184s.jpg"
+      },
+      {
+        "t": 186.0,
+        "timestamp": "03:06",
+        "file": "frames/t0186s.jpg"
+      },
+      {
+        "t": 188.0,
+        "timestamp": "03:08",
+        "file": "frames/t0188s.jpg"
+      },
+      {
+        "t": 190.0,
+        "timestamp": "03:10",
+        "file": "frames/t0190s.jpg"
+      },
+      {
+        "t": 192.0,
+        "timestamp": "03:12",
+        "file": "frames/t0192s.jpg"
+      },
+      {
+        "t": 194.0,
+        "timestamp": "03:14",
+        "file": "frames/t0194s.jpg"
+      }
+    ]
+  },
+  "transcript": {
+    "file": "transcript.json",
+    "segments": 33,
+    "language": "en"
+  },
+  "answer_key": {
+    "xd_violent_segments": [],
+    "lena": {
+      "clip_title": "Ava's first gymnastics meet!!",
+      "decision": "allow",
+      "guideline": "Child safety policy",
+      "harm_start_seconds": "",
+      "harm_end_seconds": ""
+    }
+  }
+}

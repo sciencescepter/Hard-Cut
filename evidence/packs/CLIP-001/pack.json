@@ -1,0 +1,155 @@
+{
+  "clip_id": "CLIP-001",
+  "source": {
+    "dataset": "XD-Violence (test set)",
+    "xd_video": "v=SE5fxK7SasU__#00-03-23_00-04-08_label_B4-0-0",
+    "title": "PUBLIC FREAKOUT COMPILATION | RIOTS INFERNOS DERANGED PEOPLE AND MORE",
+    "match_type": "category match",
+    "why_it_fits": "Real crowd violence filmed and posted as entertainment: a cheering crowd smashes and climbs on a car while dozens film on phones. XD calls the source a compilation, but this 45 s segment holds one incident, so VIO-01 has to rest on the cheering and the entertainment framing, not on several cuts. XD labels the whole segment violent (frames 0-1081).",
+    "duration_seconds": 45.11,
+    "fps": 24.0
+  },
+  "frames": {
+    "every_seconds": 2,
+    "count": 23,
+    "items": [
+      {
+        "t": 0.0,
+        "timestamp": "00:00",
+        "file": "frames/t0000s.jpg"
+      },
+      {
+        "t": 2.0,
+        "timestamp": "00:02",
+        "file": "frames/t0002s.jpg"
+      },
+      {
+        "t": 4.0,
+        "timestamp": "00:04",
+        "file": "frames/t0004s.jpg"
+      },
+      {
+        "t": 6.0,
+        "timestamp": "00:06",
+        "file": "frames/t0006s.jpg"
+      },
+      {
+        "t": 8.0,
+        "timestamp": "00:08",
+        "file": "frames/t0008s.jpg"
+      },
+      {
+        "t": 10.0,
+        "timestamp": "00:10",
+        "file": "frames/t0010s.jpg"
+      },
+      {
+        "t": 12.0,
+        "timestamp": "00:12",
+        "file": "frames/t0012s.jpg"
+      },
+      {
+        "t": 14.0,
+        "timestamp": "00:14",
+        "file": "frames/t0014s.jpg"
+      },
+      {
+        "t": 16.0,
+        "timestamp": "00:16",
+        "file": "frames/t0016s.jpg"
+      },
+      {
+        "t": 18.0,
+        "timestamp": "00:18",
+        "file": "frames/t0018s.jpg"
+      },
+      {
+        "t": 20.0,
+        "timestamp": "00:20",
+        "file": "frames/t0020s.jpg"
+      },
+      {
+        "t": 22.0,
+        "timestamp": "00:22",
+        "file": "frames/t0022s.jpg"
+      },
+      {
+        "t": 24.0,
+        "timestamp": "00:24",
+        "file": "frames/t0024s.jpg"
+      },
+      {
+        "t": 26.0,
+        "timestamp": "00:26",
+        "file": "frames/t0026s.jpg"
+      },
+      {
+        "t": 28.0,
+        "timestamp": "00:28",
+        "file": "frames/t0028s.jpg"
+      },
+      {
+        "t": 30.0,
+        "timestamp": "00:30",
+        "file": "frames/t0030s.jpg"
+      },
+      {
+        "t": 32.0,
+        "timestamp": "00:32",
+        "file": "frames/t0032s.jpg"
+      },
+      {
+        "t": 34.0,
+        "timestamp": "00:34",
+        "file": "frames/t0034s.jpg"
+      },
+      {
+        "t": 36.0,
+        "timestamp": "00:36",
+        "file": "frames/t0036s.jpg"
+      },
+      {
+        "t": 38.0,
+        "timestamp": "00:38",
+        "file": "frames/t0038s.jpg"
+      },
+      {
+        "t": 40.0,
+        "timestamp": "00:40",
+        "file": "frames/t0040s.jpg"
+      },
+      {
+        "t": 42.0,
+        "timestamp": "00:42",
+        "file": "frames/t0042s.jpg"
+      },
+      {
+        "t": 44.0,
+        "timestamp": "00:44",
+        "file": "frames/t0044s.jpg"
+      }
+    ]
+  },
+  "transcript": {
+    "file": "transcript.json",
+    "segments": 0,
+    "language": "en"
+  },
+  "answer_key": {
+    "xd_violent_segments": [
+      {
+        "start_frame": 0,
+        "end_frame": 1081,
+        "start": 0.0,
+        "end": 45.04
+      }
+    ],
+    "lena": {
+      "clip_title": "street fight compilation #4",
+      "decision": "remove",
+      "guideline": "Violent or graphic content policy",
+      "harm_start_seconds": "8",
+      "harm_end_seconds": "239"
+    }
+  }
+}

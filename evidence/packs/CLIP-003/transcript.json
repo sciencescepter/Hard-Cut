@@ -1,0 +1,171 @@
+{
+  "language": "en",
+  "model": "faster-whisper small",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.0,
+      "text": "Welcome to the hockey season!"
+    },
+    {
+      "start": 2.0,
+      "end": 6.0,
+      "text": "In this video, we will show you how to dress a youth goaltender."
+    },
+    {
+      "start": 7.0,
+      "end": 31.73,
+      "text": "To get started, you will need the following equipment."
+    },
+    {
+      "start": 31.73,
+      "end": 35.73,
+      "text": "Before you leave the house, make sure you have every piece of equipment."
+    },
+    {
+      "start": 35.73,
+      "end": 39.73,
+      "text": "To help with this, place your gear in the bag in the order you put it on."
+    },
+    {
+      "start": 39.73,
+      "end": 43.73,
+      "text": "This helps ensure all your gear will make it to and from the rink."
+    },
+    {
+      "start": 43.73,
+      "end": 46.73,
+      "text": "You will first start with your base layer of clothing."
+    },
+    {
+      "start": 46.73,
+      "end": 49.73,
+      "text": "Use something that's comfortable and breathable."
+    },
+    {
+      "start": 49.73,
+      "end": 53.73,
+      "text": "Pull on your hockey pants and make sure to tighten them accordingly."
+    },
+    {
+      "start": 53.73,
+      "end": 57.1,
+      "text": "Then put on your knee pads."
+    },
+    {
+      "start": 57.1,
+      "end": 62.1,
+      "text": "Pull your hockey socks over the knee pads and attach them to a garter belt."
+    },
+    {
+      "start": 62.1,
+      "end": 65.1,
+      "text": "Next, you will put on your hockey skates."
+    },
+    {
+      "start": 65.1,
+      "end": 71.74,
+      "text": "Make sure there are no laces that are dragging on the ice or being stepped on."
+    },
+    {
+      "start": 71.74,
+      "end": 74.74,
+      "text": "You will then attach the goalie pads to your skates."
+    },
+    {
+      "start": 74.74,
+      "end": 79.74,
+      "text": "This can be tricky for young goalies and is best if the parents help."
+    },
+    {
+      "start": 79.74,
+      "end": 82.74,
+      "text": "Lay the pad out in front of your skate."
+    },
+    {
+      "start": 82.74,
+      "end": 89.74,
+      "text": "Then tie your skate as seen in the video to get at least one inch of skate lace between your skate and the pad."
+    },
+    {
+      "start": 89.74,
+      "end": 95.74,
+      "text": "This is essential so your skate can rotate in your pads while skating and while in your butterfly."
+    },
+    {
+      "start": 95.74,
+      "end": 101.74,
+      "text": "You will then loop through the first hole of the skate, then the middle, and then through the back."
+    },
+    {
+      "start": 101.74,
+      "end": 105.74,
+      "text": "Bring the skate lace over the top and tie a bow."
+    },
+    {
+      "start": 105.74,
+      "end": 109.74,
+      "text": "Start attaching straps and work from the bottom up."
+    },
+    {
+      "start": 109.74,
+      "end": 113.74,
+      "text": "The bottom strap should feed through under the back part of your skate."
+    },
+    {
+      "start": 113.74,
+      "end": 117.74,
+      "text": "This strap should also remain fairly loose to allow the pad to rotate."
+    },
+    {
+      "start": 117.74,
+      "end": 124.74,
+      "text": "Then attach the rest of the straps and make sure the ones at the top of the pad near the knee are loose."
+    },
+    {
+      "start": 124.74,
+      "end": 128.74,
+      "text": "This helps goalies width and balance in their butterfly position."
+    },
+    {
+      "start": 128.74,
+      "end": 131.74,
+      "text": "Then goalies should put on their neck and chest protector."
+    },
+    {
+      "start": 131.74,
+      "end": 137.74,
+      "text": "Chest protectors can be tucked into the pants or can hang over the pants, whatever is comfortable."
+    },
+    {
+      "start": 137.74,
+      "end": 143.74,
+      "text": "Also remember to tighten your belt but not too tight as we want to maximize coverage area."
+    },
+    {
+      "start": 143.74,
+      "end": 151.11,
+      "text": "If a goalie wears suspenders, they should be pulled over the chest protector in this step."
+    },
+    {
+      "start": 151.11,
+      "end": 155.11,
+      "text": "Make sure to put on your jersey before putting on your gloves."
+    },
+    {
+      "start": 155.11,
+      "end": 159.62,
+      "text": "Now it's time to put on your helmet and gloves."
+    },
+    {
+      "start": 159.62,
+      "end": 163.62,
+      "text": "Gloves can be tightened with the velcro straps inside."
+    },
+    {
+      "start": 163.62,
+      "end": 167.62,
+      "text": "Last but not least, grab your stick and go play hockey."
+    }
+  ]
+}

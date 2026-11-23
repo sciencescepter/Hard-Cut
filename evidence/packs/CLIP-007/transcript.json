@@ -1,0 +1,221 @@
+{
+  "language": "en",
+  "model": "faster-whisper small",
+  "segments": [
+    {
+      "start": 1.01,
+      "end": 6.37,
+      "text": "Well, turning now to Paris, where police have again been firing tear gas and water cannon"
+    },
+    {
+      "start": 6.37,
+      "end": 10.77,
+      "text": "as Yellow Vest protesters ignited fires and ransacked shops."
+    },
+    {
+      "start": 10.77,
+      "end": 15.97,
+      "text": "They're the most violent street clashes in Paris since December of last year."
+    },
+    {
+      "start": 15.97,
+      "end": 21.13,
+      "text": "This is now the fourth month of demonstrations by a loose coalition of activists, unions"
+    },
+    {
+      "start": 21.13,
+      "end": 22.65,
+      "text": "and citizens."
+    },
+    {
+      "start": 22.65,
+      "end": 27.21,
+      "text": "They're angry with French president Manoan Macron and his policies."
+    },
+    {
+      "start": 27.21,
+      "end": 33.37,
+      "text": "Voters accuse him of forgetting about ordinary people and instead favoring France's elites."
+    },
+    {
+      "start": 33.37,
+      "end": 41.88,
+      "text": "Let's get the latest now from Paris and for that we're joined by journalist John Lawrenson."
+    },
+    {
+      "start": 41.88,
+      "end": 47.8,
+      "text": "So John, what can you tell us about the current situation in the French capital?"
+    },
+    {
+      "start": 47.8,
+      "end": 50.16,
+      "text": "There's been a lot of violence today."
+    },
+    {
+      "start": 50.16,
+      "end": 53.2,
+      "text": "There's been a sudden upsurge of violence today."
+    },
+    {
+      "start": 53.2,
+      "end": 59.56,
+      "text": "Over the previous weeks, we'd seen a tailing off, but today, sudden upsurge, we've"
+    },
+    {
+      "start": 59.56,
+      "end": 63.48,
+      "text": "seen a number of shocks attacks on the Champs-\u00c9lys\u00e9es in particular."
+    },
+    {
+      "start": 63.48,
+      "end": 70.84,
+      "text": "Famous marks such as Tara Jarman, Nespresso, Hugo Boss, Etan, the lingerie store."
+    },
+    {
+      "start": 70.84,
+      "end": 77.04,
+      "text": "We've seen also a nasty fire, which was started by the Black Block activists."
+    },
+    {
+      "start": 77.04,
+      "end": 83.36,
+      "text": "These are extremely left activists, extremely well-organized, who behave in a quasi-military"
+    },
+    {
+      "start": 83.36,
+      "end": 88.4,
+      "text": "fashion on these gilets jaunes demonstrations."
+    },
+    {
+      "start": 88.4,
+      "end": 93.44,
+      "text": "They attacked a bank, started a fire there, 11 people were injured, one woman and her baby"
+    },
+    {
+      "start": 93.44,
+      "end": 96.72,
+      "text": "had to be evacuated by firefighters from the second floor."
+    },
+    {
+      "start": 96.72,
+      "end": 102.2,
+      "text": "Also another thing to be noted, Le Fouquet's very famous caf\u00e9 on the Champs-\u00c9lys\u00e9es was"
+    },
+    {
+      "start": 102.2,
+      "end": 105.72,
+      "text": "attacked ransacked, completely wrecked this place."
+    },
+    {
+      "start": 105.72,
+      "end": 111.96,
+      "text": "This is very much a symbol of the political and economic elite in France."
+    },
+    {
+      "start": 111.96,
+      "end": 118.08,
+      "text": "That's where Nicolas Sarkozy celebrated his presidential election victory in 2007 with"
+    },
+    {
+      "start": 118.08,
+      "end": 121.88,
+      "text": "business leaders, got very much criticized for that."
+    },
+    {
+      "start": 121.88,
+      "end": 123.84,
+      "text": "So a lot of violence today."
+    },
+    {
+      "start": 123.84,
+      "end": 129.64,
+      "text": "Alright, well, with all of these violent attacks against these symbols of the elite,"
+    },
+    {
+      "start": 129.64,
+      "end": 134.96,
+      "text": "of luxury shops, as you mentioned, what did the protesters actually hope to achieve?"
+    },
+    {
+      "start": 136.93,
+      "end": 143.65,
+      "text": "Well, it's interesting, I think, to see why these protests were so violent today."
+    },
+    {
+      "start": 143.65,
+      "end": 150.93,
+      "text": "I think we've got to take note of the fact that this big, vast consultation exercise,"
+    },
+    {
+      "start": 150.93,
+      "end": 156.01,
+      "text": "which was undertaken by Emmanuel Macron two months ago, the great national debate as"
+    },
+    {
+      "start": 156.01,
+      "end": 160.05,
+      "text": "he calls it, this came to an end yesterday."
+    },
+    {
+      "start": 160.05,
+      "end": 164.93,
+      "text": "Through those meetings, these numerous meetings all around the country over the"
+    },
+    {
+      "start": 164.93,
+      "end": 171.05,
+      "text": "last two months, the president has been trying to find out what the people want,"
+    },
+    {
+      "start": 171.05,
+      "end": 175.41,
+      "text": "what the Gilles Jaunes and the French people in general want."
+    },
+    {
+      "start": 175.41,
+      "end": 180.33,
+      "text": "So they've been coming up with a great list of things that they're asking for."
+    },
+    {
+      "start": 180.33,
+      "end": 185.73,
+      "text": "I think today the demonstrators were saying, look, now you see what we want,"
+    },
+    {
+      "start": 185.73,
+      "end": 189.05,
+      "text": "now give it to us, or more of this violence is going to take place."
+    },
+    {
+      "start": 189.05,
+      "end": 194.33,
+      "text": "I think for some of them as well, let's stop talking, now it's time for insurrection."
+    },
+    {
+      "start": 194.41,
+      "end": 198.57,
+      "text": "And there are definitely people on these yellow vest rallies now,"
+    },
+    {
+      "start": 198.57,
+      "end": 205.41,
+      "text": "people who weren't there initially in November, but who have got involved since then,"
+    },
+    {
+      "start": 205.41,
+      "end": 209.53,
+      "text": "who really want to take this fight as far as it is in Paris."
+    },
+    {
+      "start": 209.53,
+      "end": 212.45,
+      "text": "OK, journalist John Lawrence in reporting from Paris."
+    },
+    {
+      "start": 212.45,
+      "end": 213.45,
+      "text": "Many thanks."
+    }
+  ]
+}

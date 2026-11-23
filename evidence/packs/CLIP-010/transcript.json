@@ -1,0 +1,91 @@
+{
+  "language": "en",
+  "model": "faster-whisper small",
+  "segments": [
+    {
+      "start": 1.3,
+      "end": 3.3,
+      "text": "How's it feel to be an uncle brother, you know I"
+    },
+    {
+      "start": 4.14,
+      "end": 5.64,
+      "text": "Wouldn't know"
+    },
+    {
+      "start": 5.64,
+      "end": 7.58,
+      "text": "I've been home for two years dude"
+    },
+    {
+      "start": 7.58,
+      "end": 12.64,
+      "text": "It if you and your brother like coached or do you think she could be like better than rousey like one of the cool"
+    },
+    {
+      "start": 12.64,
+      "end": 15.18,
+      "text": "Like one of the most I hope not yeah"
+    },
+    {
+      "start": 15.58,
+      "end": 19.8,
+      "text": "Do you have any message to your fans about the arrest or anything or when when you're gonna fight again brother?"
+    },
+    {
+      "start": 23.06,
+      "end": 25.06,
+      "text": "Oh really next when was that"
+    },
+    {
+      "start": 26.26,
+      "end": 29.5,
+      "text": "Dude we're pumped who you gonna fight man? Who do you want to fight the month?"
+    },
+    {
+      "start": 31.3,
+      "end": 33.3,
+      "text": "Okay, uh GSP"
+    },
+    {
+      "start": 34.14,
+      "end": 36.14,
+      "text": "Is that the first your first break you think yeah?"
+    },
+    {
+      "start": 36.62,
+      "end": 41.42,
+      "text": "He already says he's gonna fight how would he do against GSP man like first round or second round knockout?"
+    },
+    {
+      "start": 41.42,
+      "end": 43.42,
+      "text": "I went if you don't see"
+    },
+    {
+      "start": 44.1,
+      "end": 47.42,
+      "text": "If you don't miss weight like it last time do you think he cheese fight?"
+    },
+    {
+      "start": 47.42,
+      "end": 50.1,
+      "text": "I always seem like working out in the pool like eating clean"
+    },
+    {
+      "start": 50.1,
+      "end": 51.6,
+      "text": "I mean"
+    },
+    {
+      "start": 51.6,
+      "end": 55.58,
+      "text": "People we've been dying to hear from you because like ever since the whole arrest thing like we were wondering what your message was to the"
+    },
+    {
+      "start": 55.58,
+      "end": 57.58,
+      "text": "fans, you know"
+    }
+  ]
+}

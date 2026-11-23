@@ -1,0 +1,56 @@
+{
+  "language": "ca",
+  "model": "faster-whisper small",
+  "segments": [
+    {
+      "start": 57.78,
+      "end": 59.26,
+      "text": "en una manera salvaje."
+    },
+    {
+      "start": 59.34,
+      "end": 61.7,
+      "text": "Y nada, seguiremos luchando por hoy."
+    },
+    {
+      "start": 61.78,
+      "end": 65.26,
+      "text": "Apuelos, ni\u00f1os, mujeres, todos llorando,"
+    },
+    {
+      "start": 65.34,
+      "end": 66.78,
+      "text": "todos sufriendo, y por qu\u00e9?"
+    },
+    {
+      "start": 66.86,
+      "end": 70.18,
+      "text": "Solo por querer votar, por querer democracia,"
+    },
+    {
+      "start": 70.26,
+      "end": 74.82,
+      "text": "por querer ser una persona normal con derechos humanos, \u00bfsabes?"
+    },
+    {
+      "start": 74.9,
+      "end": 96.61,
+      "text": "L'\u00fas injustificat, racional i irresponsable"
+    },
+    {
+      "start": 96.69,
+      "end": 100.09,
+      "text": "de la viol\u00e8ncia per part de l'estat espanyol,"
+    },
+    {
+      "start": 100.17,
+      "end": 103.41,
+      "text": "no nom\u00e9s no atura el desig dels catalans"
+    },
+    {
+      "start": 103.41,
+      "end": 106.41,
+      "text": "de poder votar pac\u00edficament, democr\u00e0ticament."
+    }
+  ]
+}
