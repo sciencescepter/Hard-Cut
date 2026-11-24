@@ -12,6 +12,7 @@
   "frames": {
     "every_seconds": 2,
     "count": 64,
+    "stored": "local only, not committed; rebuild with src/build_packs.py",
     "items": [
       {
         "t": 0.0,

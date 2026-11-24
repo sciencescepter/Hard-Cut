@@ -31,6 +31,8 @@ The project then named the toolset to use: ffmpeg for the frames and faster-whis
 
 ## What was changed in the output
 
+- **Transcript labels fixed to exact seconds (after feedback).** The first version of `transcript.txt` rounded each time to the nearest second, which produced times that don't exist: CLIP-012's last line ends at 96.58 s but was labelled 01:37 on a 96.67 s video, and a 0.26 s line in CLIP-002 became 04:26-04:26. Labels now show Whisper's exact hundredths, e.g. `[01:34.58-01:36.58]`. `transcript.json` always held the exact times and was unaffected.
+- **Every timestamp is now checked.** `src/check_packs.py` checks that each frame, transcript line and XD segment sits inside its video, that `transcript.txt` shows exactly the times in `transcript.json`, and (with `--video`) that each saved frame matches the video's own picture at that frame number. All 12 packs pass. As a test of the checker, comparing each frame with the picture 2 s later flagged 93 of 110 frames in CLIP-007 (the rest are near-identical studio shots).
 - **Timestamps on the frames.** Each frame is named by its second (`t0042s.jpg`) and has `t=00:42 (42s)` printed in its top-left corner, so the time survives if a picture is viewed on its own.
 - **Audio decoding.** faster-whisper's own decoder crashed with the installed PyAV version, so the audio is decoded with ffmpeg (16 kHz mono) and passed to Whisper directly. The transcript content is unaffected.
 - **Empty transcripts kept empty.** CLIP-001, 004, 005 and 009 have no speech. With the voice filter off, Whisper invented text such as "Stay tuned for more of these kind of events"; that output was rejected rather than saved.

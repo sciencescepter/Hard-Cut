@@ -17,10 +17,11 @@ Built by `src/build_packs.py` (ffmpeg + faster-whisper `small`, CPU int8) on all
 | CLIP-011 | `v=GI49YSCruwY__#1_label_B4-0-0` | category match | 126.33 | 64 | 10 | ca | 0-58.75s; 74.79-81.88s; 96.67-124.17s |
 | CLIP-012 | `v=osjdmjNJUdg__#1_label_B1-0-0` | category match | 96.67 | 49 | 40 | en | 7.96-35.67s; 57.5-82.71s |
 
-- All 12 packs have frames, and the frame count on disk matches each pack.json.
+- All 12 packs pass `src/check_packs.py --video`: every frame, transcript line and XD segment is inside its video, transcript.txt matches transcript.json exactly, and every saved frame matches the video's picture at that second.
 - 4 packs have 0 transcript segments (CLIP-001, 004, 005, 009). Rechecked with the voice filter off: Whisper only produced "Oh", garbled characters or stock filler over music and noise, so there is no real speech and the empty transcript is correct.
 - Frames stay on the machine that built them and are not committed: they are stills of real violence from a dataset with no stated licence. Rebuild them with the command below once the XD-Violence test set is in `xd_violence/`.
 
 ```bash
 .venv/bin/python src/build_packs.py
+.venv/bin/python src/check_packs.py --video
 ```

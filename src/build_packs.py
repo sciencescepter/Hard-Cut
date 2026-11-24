@@ -38,8 +38,19 @@ VIDEO_SUFFIXES = {".mp4", ".mkv", ".avi", ".webm", ".mov"}
 
 
 def mmss(seconds: float) -> str:
-    seconds = int(round(seconds))
+    """Whole-second label for a frame. Frames are only taken at whole seconds."""
+    seconds = int(seconds)
     return f"{seconds // 60:02d}:{seconds % 60:02d}"
+
+
+def mmss_exact(seconds: float) -> str:
+    """Transcript label with the exact hundredths Whisper reported, never rounded.
+
+    Rounding to whole seconds made labels that don't exist: a line ending at
+    96.58 s became 01:37 on a 96.67 s video, and a 0.26 s line became 04:26-04:26.
+    """
+    minutes, rest = divmod(seconds, 60)
+    return f"{int(minutes):02d}:{rest:05.2f}"
 
 
 def find_video(xd_name: str) -> Path:
@@ -155,7 +166,7 @@ def main(selected: list[str]) -> None:
         (pack_dir / "transcript.json").write_text(json.dumps(
             {"language": language, "model": f"faster-whisper {WHISPER_MODEL}", "segments": transcript}, indent=2) + "\n")
         (pack_dir / "transcript.txt").write_text(
-            "".join(f"[{mmss(s['start'])}-{mmss(s['end'])}] {s['text']}\n" for s in transcript)
+            "".join(f"[{mmss_exact(s['start'])}-{mmss_exact(s['end'])}] {s['text']}\n" for s in transcript)
             or "(no speech detected)\n"
         )
         (pack_dir / "pack.json").write_text(json.dumps({
@@ -169,7 +180,13 @@ def main(selected: list[str]) -> None:
                 "duration_seconds": round(duration, 2),
                 "fps": fps,
             },
-            "frames": {"every_seconds": FRAME_EVERY_SECONDS, "count": len(frames), "items": frames},
+            "frames": {
+                "every_seconds": FRAME_EVERY_SECONDS,
+                "count": len(frames),
+                # Frames are stills of real violence: built locally and git-ignored, not in the repo.
+                "stored": "local only, not committed; rebuild with src/build_packs.py",
+                "items": frames,
+            },
             "transcript": {"file": "transcript.json", "segments": len(transcript), "language": language},
             # For checking only. Never sent to Gemini.
             "answer_key": {
