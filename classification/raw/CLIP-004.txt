@@ -1,0 +1,44 @@
+=== RUN 1 ===
+{
+  "action": "remove",
+  "rule_id": "VIO-01",
+  "harm_start_seconds": 9.0,
+  "harm_end_seconds": 13.0,
+  "threshold_met": "blows continuing on a person who is down or defenceless",
+  "context_signals": [
+    "Informational title: 'Man kicks girlfriend on Jersey City street corner'",
+    "Opening disclaimer card at 2s-6s: 'Warning: This video contains graphic content.'"
+  ],
+  "evidence_frames": [10, 12],
+  "reasoning": "The clip depicts real violence where an assailant repeatedly kicks a person who is down and defenceless on the sidewalk. Although an informational title and opening disclaimer are present, they do not run across the violent footage, so NEWS-01 is not met. Under rule VIO-01(e), real violence featuring continued blows on a defenceless victim without qualifying context must be removed."
+}
+
+=== RUN 2 ===
+{
+  "action": "remove",
+  "rule_id": "VIO-01",
+  "harm_start_seconds": 8.0,
+  "harm_end_seconds": 13.0,
+  "threshold_met": "blows continuing on a person who is down or defenceless with no context covering the footage",
+  "context_signals": [
+    "informational title",
+    "opening disclaimer card at 2s-6s"
+  ],
+  "evidence_frames": [8, 10, 12, 14],
+  "reasoning": "The clip depicts real-world violence where an assailant repeatedly kicks a defenceless victim lying on the sidewalk. Although an opening warning card and descriptive title are present, no qualifying context signals cover the violent footage itself. Under policy rule VIO-01(e), uncontextualised footage of blows continuing on a person who is down must be removed."
+}
+
+=== RUN 3 ===
+{
+  "action": "remove",
+  "rule_id": "VIO-01",
+  "harm_start_seconds": 9.0,
+  "harm_end_seconds": 13.0,
+  "threshold_met": "blows continuing on a person who is down or defenceless",
+  "context_signals": [
+    "informational title in video title"
+  ],
+  "evidence_frames": [10, 12],
+  "reasoning": "The clip depicts real street violence where a man repeatedly delivers kicks to a person already down on the ground. Because blows continue on a defenceless victim on the ground with no qualifying context signals covering the footage, rule VIO-01 applies. Under the policy's order of checks, this requires removal at step 4."
+}
+

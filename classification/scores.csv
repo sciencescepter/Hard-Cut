@@ -1,0 +1,2 @@
+clip_id,match_type,comparable,gemini_action,votes,agreement,gemini_rule,gemini_harm_span,lena_decision,matches_lena,xd_violent_segments,span_overlaps_xd,retries,total_tokens,model,run_at_utc
+CLIP-004,category match,True,remove,"remove, remove, remove",3 of 3,VIO-01,9-13s,restrict,False,8.04-12.08s,yes,0,61415,gemini-3.8-flash,2026-11-24T00:36:11+00:00

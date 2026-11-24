@@ -30,3 +30,16 @@ brew install ffmpeg
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python src/build_packs.py
 ```
+
+## Classification with Gemini
+
+Each clip is classified as allow, restrict or remove under policy v1.0 by Gemini (`gemini-3.8-flash`, JSON reply with a Pydantic class as the schema), 3 times with a majority vote, then scored against Lena's label. This stage runs CLIP-004 as the worked example.
+
+- [classification/SPEC.md](classification/SPEC.md): what goes into each call, what each finding must contain and what happens when it fails, and what gets saved.
+- [classification/SCORECARD.md](classification/SCORECARD.md): the result for CLIP-004, with the full decision.
+- [src/decision_schema.py](src/decision_schema.py), [src/classify_clips.py](src/classify_clips.py), [src/score_decisions.py](src/score_decisions.py), and offline tests in [tests/](tests/).
+
+```bash
+.venv/bin/python -m pytest -q                       # offline, no API calls
+.venv/bin/python src/classify_clips.py CLIP-004     # needs GEMINI_API_KEY in .env and the frames built
+```
