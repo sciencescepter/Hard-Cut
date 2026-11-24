@@ -16,3 +16,6 @@ evidence/packs/*/frames/
 
 # Local work not part of the evidence-pack deliverable (e.g. the stopped Gemini run)
 local_only/
+
+# Uploaded videos, their frames and results stay local.
+uploads/

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block style %}
+form { display:grid; gap:14px }
+label { font-weight:600; display:grid; gap:4px }
+label.tick { display:flex; gap:8px; align-items:center; font-weight:400 }
+input[type=text], input[type=file] { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:9px; width:100% }
+button { font:inherit; font-weight:600; background:var(--ink); color:var(--bg); border:0; border-radius:6px; padding:10px 18px; justify-self:start; cursor:pointer }
+.error { color:var(--remove); font-weight:600 }
+ul { list-style:none; margin:0; padding:0 }
+li { display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-top:1px solid var(--line) }
+li:first-child { border-top:0 }
+li span { white-space:nowrap }
+{% endblock %}
+{% block main %}
+<h1>Upload decision</h1>
+<p class="soft">Upload a clip of up to {{ max_minutes }} minutes to get a decision under moderation policy v1.0.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form class="card" action="/uploads" method="post" enctype="multipart/form-data" onsubmit="this.querySelector('button').textContent='Uploading…'">
+  <label>Video file <input type="file" name="clip" accept="video/*" required></label>
+  <label>Title <input type="text" name="title" maxlength="200" required></label>
+  <label class="tick"><input type="checkbox" name="is_news_report"> <span>This is a news report (<code>is_news_report</code>)</span></label>
+  <button>Get decision</button>
+</form>
+
+<h2>Waiting for human review ({{ queue|length }})</h2>
+<div class="card">
+  {% if queue %}<ul>{% for job in queue %}
+    <li><a href="/uploads/{{ job.id }}">{{ job.title }}</a> <span class="mono soft">routed_to_human_review</span></li>
+  {% endfor %}</ul>{% else %}<span class="soft">Nothing is waiting.</span>{% endif %}
+</div>
+
+<h2>Recent uploads</h2>
+<div class="card">
+  {% if recent %}<ul>{% for job in recent %}
+    <li><a href="/uploads/{{ job.id }}">{{ job.title }}</a>
+      <span class="soft">{% if not job.result %}Working…{% elif job.result.decision %}{{ job.result.decision|capitalize }}{% if job.result.age_restricted %}, age restricted{% endif %}{% else %}Human review{% endif %}</span></li>
+  {% endfor %}</ul>{% else %}<span class="soft">No uploads yet.</span>{% endif %}
+</div>
+{% endblock %}

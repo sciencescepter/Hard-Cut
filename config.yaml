@@ -1,2 +1,4 @@
-# Gemini model used by src/gemini_check.py (newest Flash model that works on the free key)
+# Gemini model used by the decision script
 gemini_model: gemini-3.8-flash
+# LangSmith project the decisions are traced to
+langsmith_project: youtube-upload-decisions

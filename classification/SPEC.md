@@ -14,7 +14,7 @@ Code: [src/decision_schema.py](../src/decision_schema.py) (the Pydantic class), 
 |---|---|
 | The full text of `policy/policy_v1.0.md` | Lena's decision, harm span, guideline reference and note |
 | The source video's own title and its duration in seconds (`pack.json` → `source`) | Lena's clip title (it describes different footage from the stand-in) |
-| The timed transcript with exact start and end seconds (`transcript.json`), or "(no speech detected)" | XD-Violence's labels and violent segments (`pack.json` → `answer_key`) |
+| The timed transcript, numbered, with exact start and end seconds (`transcript.json`), or "(no speech detected)" | XD-Violence's labels and violent segments (`pack.json` → `answer_key`) |
 | Every frame (one per 2 seconds), each introduced by a text line `Frame at t=42s (00:42)`, with the same time printed on the picture | The match type and "why it fits" text |
 
 The model is told to work through the policy's order of checks, stop at the first rule that applies, and answer `human_review` with rule `NONE` when no rule fits, as policy step 7 requires.
@@ -23,19 +23,9 @@ Settings: model from `config.yaml` (`gemini-3.8-flash`), temperature 0, `respons
 
 ## 2. What each finding must contain, and what happens when it fails
 
-**Each finding is a `ClipDecision`:**
+**Each answer is a `ClipDecision` holding a list of `Finding`.** Both field tables, with the check each field must pass, are in the [README](../README.md#what-each-decision-and-finding-contains). Every finding carries a rule ID, a harm start and end in whole seconds, a rationale, and exactly one piece of evidence (a frame or a transcript line).
 
-| Field | Rule it must pass |
-|---|---|
-| `action` | One of `allow`, `restrict`, `remove`, `human_review` |
-| `rule_id` | A deciding rule ID that exists in policy v1.0 and gives that action (e.g. `VIO-04` → `restrict`). `NONE` only with `human_review` |
-| `harm_start_seconds`, `harm_end_seconds` | Both or neither. When given: start < end, both inside 0 and the clip's duration. Required for `restrict` and `remove` |
-| `evidence_frames` | Timestamps of frames that really exist in the pack (0, 2, 4 …). At least one for `restrict` and `remove` |
-| `threshold_met` | The policy threshold that was met, in a few words. Not empty |
-| `context_signals` | The NEWS-01 context signals seen, with where they appear. Empty if none |
-| `reasoning` | Two or three sentences. Not empty |
-
-The clip's duration and frame timestamps come from the pack, not from the model, and are passed to the check as validation context.
+The clip's duration, frame timestamps and transcript lines come from the pack, not from the model, and are passed to the check as validation context.
 
 **When an answer fails the check:**
 1. The reply is saved exactly as received.

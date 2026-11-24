@@ -4,18 +4,18 @@ Model `gemini-3.8-flash`, policy v1.0, one call per clip, 3 runs per clip, major
 
 ## Score
 
-- **Comparable clips: 0 of 1 match Lena (0%).** These are the category, fiction, setting and format matches.
-- All 1 clips run: 0 of 1 match. The 0 stand-ins with no category match show different footage from Lena's clip, so they are not part of the headline score.
+- **Comparable clips: 1 of 1 match Lena (100%).** These are the category, fiction, setting and format matches.
+- All 1 clips run: 1 of 1 match. The 0 stand-ins with no category match show different footage from Lena's clip, so they are not part of the headline score.
 - Failed after retry: 0. No majority: 0. Retries used: 0. A failed, split or human_review clip counts as a miss.
-- All 3 runs agreed on 1 of 1 clip(s). The agreement column shows which decisions are borderline.
+- All 3 runs agreed on 0 of 1 clip(s). The agreement column shows which decisions are borderline.
 - Harm span overlaps XD-Violence's violent segments: 1 of 1 clips where XD marks violence.
-- Tokens: 61,415 in total.
+- Tokens: 61,972 in total.
 
 ## Every clip
 
 | Clip | Match | Gemini (majority) | Runs agree | Rule | Harm span | Lena | Same? | Overlaps XD violence? |
 |---|---|---|---|---|---|---|---|---|
-| CLIP-004 | category match | remove | 3 of 3 (remove, remove, remove) | VIO-01 | 9-13s | restrict | **no** | yes |
+| CLIP-004 | category match | restrict | 2 of 3 (remove, restrict, restrict) | VIO-04 | 10-12s | restrict | yes | yes |
 
 ## Confusion table (comparable clips)
 
@@ -24,29 +24,32 @@ Rows are Lena's decision, columns are Gemini's.
 | Lena \ Gemini | allow | restrict | remove | human_review | no majority | FAILED |
 |---|---|---|---|---|---|---|
 | allow | 0 | 0 | 0 | 0 | 0 | 0 |
-| restrict | 0 | 0 | 1 | 0 | 0 | 0 |
+| restrict | 0 | 1 | 0 | 0 | 0 | 0 |
 | remove | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Decision shown: CLIP-004
 
 Road rage caught on dashcam (Lena: **restrict**, a punch at 71-73s). Matched with an XD-Violence street assault that XD marks as violent at 8.04-12.08s.
-Votes across the 3 runs: remove, remove, remove (3 of 3). The decision below is the first run with the majority action.
+Votes across the 3 runs: remove, restrict, restrict (2 of 3). The decision below is the first run with the majority action.
 
 ```json
 {
-  "action": "remove",
-  "rule_id": "VIO-01",
-  "harm_start_seconds": 9.0,
-  "harm_end_seconds": 13.0,
-  "threshold_met": "blows continuing on a person who is down or defenceless",
+  "action": "restrict",
+  "rule_id": "VIO-04",
+  "threshold_met": "Single incident of real violence under 10 seconds, non-fatal, with no replays or glorifying signals",
   "context_signals": [
-    "Informational title: 'Man kicks girlfriend on Jersey City street corner'",
-    "Opening disclaimer card at 2s-6s: 'Warning: This video contains graphic content.'"
+    "Informational title: 'Man kicks girlfriend on Jersey City street corner'"
   ],
-  "evidence_frames": [
-    10,
-    12
+  "findings": [
+    {
+      "rule_id": "VIO-04",
+      "harm_start_seconds": 10,
+      "harm_end_seconds": 12,
+      "rationale": "A man kicks a person on the ground in a brief, non-fatal violent interaction lasting approximately two seconds, with no replays or glorifying elements.",
+      "evidence_frame": 10,
+      "evidence_transcript_line": null
+    }
   ],
-  "reasoning": "The clip depicts real violence where an assailant repeatedly kicks a person who is down and defenceless on the sidewalk. Although an informational title and opening disclaimer are present, they do not run across the violent footage, so NEWS-01 is not met. Under rule VIO-01(e), real violence featuring continued blows on a defenceless victim without qualifying context must be removed."
+  "reasoning": "The clip depicts a single real-world physical assault where a man kicks someone on the sidewalk. The harmful interaction lasts only about two seconds, is non-fatal, and contains no replays, glorification, or graphic injury. Because it meets all criteria for brief, non-glorified real violence outside sanctioned combat sports, it is age-restricted under VIO-04."
 }
 ```

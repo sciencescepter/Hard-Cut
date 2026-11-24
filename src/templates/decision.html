@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block style %}
+.verdict { display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin:4px 0 10px }
+.verdict b { font-size:2.6rem; line-height:1.1; text-transform:capitalize }
+.allow { color:var(--allow) } .restrict { color:var(--restrict) } .remove { color:var(--remove) } .human { color:var(--human) }
+.badge { border:2px solid currentColor; border-radius:6px; padding:3px 10px; font-weight:700 }
+.finding { display:grid; grid-template-columns:1fr 300px; gap:18px; margin-bottom:12px }
+.finding .window { font-size:1.35rem; font-weight:700; font-variant-numeric:tabular-nums }
+.finding .rule { font-weight:700 }
+.finding p { margin:8px 0 0 }
+.finding img { width:100%; display:block; border-radius:4px }
+.finding blockquote { margin:0; padding-left:12px; border-left:3px solid var(--line) }
+.blur img { filter:blur(18px) } .frame { overflow:hidden; border-radius:4px }
+dl { display:grid; grid-template-columns:max-content 1fr; gap:6px 18px; margin:0 }
+dt { color:var(--soft) } dd { margin:0; overflow-wrap:anywhere }
+.bar { height:6px; border-radius:3px; background:var(--line); overflow:hidden; margin:16px 0 }
+.bar i { display:block; height:100%; width:30%; background:var(--human); animation:slide 1.4s infinite ease-in-out }
+@keyframes slide { from { margin-left:-30% } to { margin-left:100% } }
+@media (prefers-reduced-motion: reduce) { .bar i { animation:none; width:100% } }
+.row { display:flex; justify-content:space-between; align-items:baseline; gap:16px }
+@media (max-width:640px) { .finding { grid-template-columns:1fr } }
+{% endblock %}
+{% block main %}
+{% set result = job.result %}
+{% macro clip() %}
+<h1>{{ job.title }}</h1>
+<p class="soft">{{ job.duration_seconds }} seconds{% if job.is_news_report %}, marked as a news report{% endif %}. <a href="/">New upload</a></p>
+{% endmacro %}
+
+{% if not result %}
+{{ clip() }}
+<div class="card" role="status">
+  <strong>Still working</strong>
+  <div class="bar"><i></i></div>
+  <div><span id="stage">{{ job.stage }}</span>. <span id="seconds">0</span> seconds so far.</div>
+  <p class="soft">Longer clips take a few minutes. This page updates by itself.</p>
+</div>
+<script>
+async function check() {
+  try {
+    const now = await (await fetch(location.pathname + "/status")).json();
+    if (now.done) return location.reload();
+    document.getElementById("stage").textContent = now.stage;
+    document.getElementById("seconds").textContent = now.seconds;
+  } catch (error) {
+    document.getElementById("stage").textContent = "Lost contact with the page's server, trying again";
+  }
+  setTimeout(check, 1000);
+}
+check();
+</script>
+
+{% elif result.validation_status == "validated" %}
+<div class="verdict {{ result.decision }}"><b>{{ result.decision }}</b>{% if result.age_restricted %}<span class="badge">Age restricted</span>{% endif %}</div>
+{{ clip() }}
+<p>{{ result.reasoning }}</p>
+
+<div class="row"><h2>Findings ({{ result.findings|length }})</h2>
+{% if result.findings %}<label class="soft"><input type="checkbox" onchange="document.getElementById('findings').classList.toggle('blur', this.checked)"> Blur pictures</label>{% endif %}</div>
+<div id="findings">
+{% for finding in result.findings %}
+<article class="card finding">
+  <div>
+    <div class="window mono">{{ finding.harm_window }}</div>
+    <div class="rule mono">{{ finding.rule_id }}</div>
+    <p>{{ finding.rationale }}</p>
+  </div>
+  <div>
+    {% if finding.evidence.type == "frame" %}
+    <div class="frame"><img src="/uploads/{{ job.id }}/{{ finding.evidence.file }}" alt="Frame at {{ finding.evidence.time }}"></div>
+    <div class="soft">Frame at <span class="mono">{{ finding.evidence.time }}</span></div>
+    {% else %}
+    <blockquote>{{ finding.evidence.text }}</blockquote>
+    <div class="soft">Transcript, <span class="mono">{{ finding.evidence.time }}</span></div>
+    {% endif %}
+  </div>
+</article>
+{% else %}<p class="soft">No harm was found in this clip.</p>{% endfor %}
+</div>
+
+{% else %}
+<div class="verdict human"><b style="text-transform:none">Needs human review</b></div>
+{{ clip() }}
+<p>{{ result.routed_reason }}</p>
+<p class="soft">No decision is shown for this clip. It is in the human review queue.</p>
+{% endif %}
+
+{% if result %}
+<h2>About this decision</h2>
+<div class="card"><dl>
+  <dt>validation_status</dt><dd class="mono">{{ result.validation_status }}</dd>
+  <dt>LangSmith trace</dt><dd>{% if result.langsmith_trace_url and result.langsmith_trace_url.startswith("https://") %}<a href="{{ result.langsmith_trace_url }}" target="_blank" rel="noopener">Open the trace</a>{% else %}Not traced. Add LANGSMITH_API_KEY to .env to turn tracing on.{% endif %}</dd>
+  {% if result.agreement %}<dt>Runs that agree</dt><dd>{{ result.agreement }}</dd>{% endif %}
+  {% if result.model %}<dt>Model</dt><dd class="mono">{{ result.model }}</dd>{% endif %}
+  {% if job.seconds_taken %}<dt>Time taken</dt><dd>{{ job.seconds_taken }} seconds</dd>{% endif %}
+</dl></div>
+{% endif %}
+{% endblock %}

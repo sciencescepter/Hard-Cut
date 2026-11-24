@@ -9,8 +9,9 @@ import classify_clips as cc
 
 PACK = cc.PACKS / "CLIP-004"
 GOOD = json.dumps({
-    "action": "restrict", "rule_id": "VIO-04", "harm_start_seconds": 9, "harm_end_seconds": 12,
-    "threshold_met": "single kick", "context_signals": [], "evidence_frames": [10, 12],
+    "action": "restrict", "rule_id": "VIO-04", "threshold_met": "single kick", "context_signals": [],
+    "findings": [{"rule_id": "VIO-04", "harm_start_seconds": 9, "harm_end_seconds": 12, "rationale": "One kick.",
+                  "evidence_frame": 10, "evidence_transcript_line": None}],
     "reasoning": "One short real assault.",
 })
 PAST_THE_END = GOOD.replace('"harm_end_seconds": 12', '"harm_end_seconds": 40')

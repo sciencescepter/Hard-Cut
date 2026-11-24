@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Upload decision{% endblock %}</title>
+<style>
+:root { --bg:#f5f5f2; --card:#fff; --ink:#1b1c1e; --soft:#5d6167; --line:#dcdcd6; --allow:#1d6b40; --restrict:#8a5200; --remove:#a3231f; --human:#3b4a94; --link:#1f4fa8; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#141517; --card:#1e2023; --ink:#ececea; --soft:#a3a7ad; --line:#34373c; --allow:#63c491; --restrict:#f0b35a; --remove:#f58a84; --human:#a6b3f5; --link:#8fb4ff; }
+}
+* { box-sizing:border-box }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, sans-serif }
+main { max-width:860px; margin:0 auto; padding:24px 16px 64px }
+a { color:var(--link) }
+h1 { font-size:1.35rem; margin:0 0 4px; text-wrap:balance }
+h2 { font-size:1.05rem; margin:32px 0 10px }
+.soft { color:var(--soft); font-size:.92rem }
+.card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:18px }
+.test { background:var(--human); color:var(--bg); padding:8px 16px; text-align:center; font-weight:600 }
+.mono { font-family:ui-monospace, Menlo, monospace }
+code { font-family:ui-monospace, Menlo, monospace; font-size:.92em }
+{% block style %}{% endblock %}
+</style>
+</head>
+<body>
+{% if test_mode %}<div class="test">{{ test_mode }}</div>{% endif %}
+<main>{% block main %}{% endblock %}</main>
+</body>
+</html>

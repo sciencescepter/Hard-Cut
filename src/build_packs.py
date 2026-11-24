@@ -146,6 +146,30 @@ def build_transcript(model, video: Path) -> tuple[list[dict], str]:
     return lines, info.language
 
 
+def write_transcript(pack_dir: Path, transcript: list[dict], language: str) -> None:
+    (pack_dir / "transcript.json").write_text(json.dumps(
+        {"language": language, "model": f"faster-whisper {WHISPER_MODEL}", "segments": transcript}, indent=2) + "\n")
+    (pack_dir / "transcript.txt").write_text(
+        "".join(f"[{mmss_exact(s['start'])}-{mmss_exact(s['end'])}] {s['text']}\n" for s in transcript)
+        or "(no speech detected)\n"
+    )
+
+
+def build_upload_pack(video: Path, title: str, pack_dir: Path, model, on_stage=lambda text: None) -> None:
+    """Build the same evidence pack for one uploaded video. There is no answer key for an upload."""
+    duration, fps = probe(video)
+    on_stage("Taking a picture every 2 seconds")
+    frames = build_frames(video, duration, pack_dir / "frames")
+    on_stage("Writing the timed transcript")
+    transcript, language = build_transcript(model, video)
+    write_transcript(pack_dir, transcript, language)
+    (pack_dir / "pack.json").write_text(json.dumps({
+        "source": {"title": title, "duration_seconds": round(duration, 2), "fps": fps},
+        "frames": {"every_seconds": FRAME_EVERY_SECONDS, "count": len(frames), "items": frames},
+        "transcript": {"file": "transcript.json", "segments": len(transcript), "language": language},
+    }, indent=2) + "\n")
+
+
 def main(selected: list[str]) -> None:
     from faster_whisper import WhisperModel  # slow import, only when building
 
@@ -162,13 +186,7 @@ def main(selected: list[str]) -> None:
 
         frames = build_frames(video, duration, pack_dir / "frames")
         transcript, language = build_transcript(model, video)
-
-        (pack_dir / "transcript.json").write_text(json.dumps(
-            {"language": language, "model": f"faster-whisper {WHISPER_MODEL}", "segments": transcript}, indent=2) + "\n")
-        (pack_dir / "transcript.txt").write_text(
-            "".join(f"[{mmss_exact(s['start'])}-{mmss_exact(s['end'])}] {s['text']}\n" for s in transcript)
-            or "(no speech detected)\n"
-        )
+        write_transcript(pack_dir, transcript, language)
         (pack_dir / "pack.json").write_text(json.dumps({
             "clip_id": clip_id,
             "source": {

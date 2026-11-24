@@ -16,6 +16,8 @@ import csv
 import json
 from pathlib import Path
 
+from decision_schema import deciding_finding
+
 ROOT = Path(__file__).resolve().parent.parent
 PACKS = ROOT / "evidence" / "packs"
 OUT = ROOT / "classification"
@@ -39,7 +41,8 @@ def load_rows() -> list[dict]:
         pack = json.loads((PACKS / record["clip_id"] / "pack.json").read_text())
         key, match_type = pack["answer_key"], pack["source"]["match_type"]
         d = record["decision"] or {}
-        start, end = d.get("harm_start_seconds"), d.get("harm_end_seconds")
+        found = deciding_finding(d) or {} if d else {}
+        start, end = found.get("harm_start_seconds"), found.get("harm_end_seconds")
         gemini = d.get("action") or {"no majority": "no majority", "failed": "FAILED"}[record["status"]]
         runs = record["runs"]
         rows.append({

@@ -2,43 +2,60 @@
 {
   "action": "remove",
   "rule_id": "VIO-01",
-  "harm_start_seconds": 9.0,
-  "harm_end_seconds": 13.0,
   "threshold_met": "blows continuing on a person who is down or defenceless",
   "context_signals": [
-    "Informational title: 'Man kicks girlfriend on Jersey City street corner'",
-    "Opening disclaimer card at 2s-6s: 'Warning: This video contains graphic content.'"
+    "Informational title describing the incident"
   ],
-  "evidence_frames": [10, 12],
-  "reasoning": "The clip depicts real violence where an assailant repeatedly kicks a person who is down and defenceless on the sidewalk. Although an informational title and opening disclaimer are present, they do not run across the violent footage, so NEWS-01 is not met. Under rule VIO-01(e), real violence featuring continued blows on a defenceless victim without qualifying context must be removed."
+  "findings": [
+    {
+      "rule_id": "VIO-01",
+      "harm_start_seconds": 9,
+      "harm_end_seconds": 13,
+      "rationale": "A man repeatedly kicks a victim who is lying defenceless on the pavement, continuing blows while the person is down without qualifying news or educational context.",
+      "evidence_frame": 10,
+      "evidence_transcript_line": null
+    }
+  ],
+  "reasoning": "The clip depicts real street violence where blows continue on an individual who is already down on the ground. Because there is no qualifying news context running across the violent footage to satisfy NEWS-01, the clip violates threshold VIO-01(e). Under the policy's order of checks, this requires immediate removal."
 }
 
 === RUN 2 ===
 {
-  "action": "remove",
-  "rule_id": "VIO-01",
-  "harm_start_seconds": 8.0,
-  "harm_end_seconds": 13.0,
-  "threshold_met": "blows continuing on a person who is down or defenceless with no context covering the footage",
+  "action": "restrict",
+  "rule_id": "VIO-04",
+  "threshold_met": "Single incident of real violence under 10 seconds, non-fatal, with no replays or glorifying signals",
   "context_signals": [
-    "informational title",
-    "opening disclaimer card at 2s-6s"
+    "Informational title: 'Man kicks girlfriend on Jersey City street corner'"
   ],
-  "evidence_frames": [8, 10, 12, 14],
-  "reasoning": "The clip depicts real-world violence where an assailant repeatedly kicks a defenceless victim lying on the sidewalk. Although an opening warning card and descriptive title are present, no qualifying context signals cover the violent footage itself. Under policy rule VIO-01(e), uncontextualised footage of blows continuing on a person who is down must be removed."
+  "findings": [
+    {
+      "rule_id": "VIO-04",
+      "harm_start_seconds": 10,
+      "harm_end_seconds": 12,
+      "rationale": "A man kicks a person on the ground in a brief, non-fatal violent interaction lasting approximately two seconds, with no replays or glorifying elements.",
+      "evidence_frame": 10,
+      "evidence_transcript_line": null
+    }
+  ],
+  "reasoning": "The clip depicts a single real-world physical assault where a man kicks someone on the sidewalk. The harmful interaction lasts only about two seconds, is non-fatal, and contains no replays, glorification, or graphic injury. Because it meets all criteria for brief, non-glorified real violence outside sanctioned combat sports, it is age-restricted under VIO-04."
 }
 
 === RUN 3 ===
 {
-  "action": "remove",
-  "rule_id": "VIO-01",
-  "harm_start_seconds": 9.0,
-  "harm_end_seconds": 13.0,
-  "threshold_met": "blows continuing on a person who is down or defenceless",
-  "context_signals": [
-    "informational title in video title"
+  "action": "restrict",
+  "rule_id": "VIO-04",
+  "threshold_met": "single incident, harm span of 10 seconds or less, non-fatal brief contact, no replays, no glorifying signal",
+  "context_signals": [],
+  "findings": [
+    {
+      "rule_id": "VIO-04",
+      "harm_start_seconds": 9,
+      "harm_end_seconds": 11,
+      "rationale": "A man kicks a person lying on the ground in a single, brief violent strike lasting approximately two seconds, with no replays or glorification.",
+      "evidence_frame": 10,
+      "evidence_transcript_line": null
+    }
   ],
-  "evidence_frames": [10, 12],
-  "reasoning": "The clip depicts real street violence where a man repeatedly delivers kicks to a person already down on the ground. Because blows continue on a defenceless victim on the ground with no qualifying context signals covering the footage, rule VIO-01 applies. Under the policy's order of checks, this requires removal at step 4."
+  "reasoning": "The clip depicts a single real-world violent incident where an individual kicks someone on the sidewalk. The harmful contact lasts under 10 seconds, is non-fatal with no graphic open wounds or replays, and contains no glorifying elements or news context. Under the policy order of checks, it meets all criteria to be age-restricted under rule VIO-04."
 }
 
