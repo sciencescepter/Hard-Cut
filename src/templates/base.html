@@ -20,6 +20,14 @@ h2 { font-size:1.05rem; margin:32px 0 10px }
 .test { background:var(--human); color:var(--bg); padding:8px 16px; text-align:center; font-weight:600 }
 .mono { font-family:ui-monospace, Menlo, monospace }
 code { font-family:ui-monospace, Menlo, monospace; font-size:.92em }
+.call { display:grid; gap:12px }
+.call fieldset { border:0; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px 20px }
+.call label { display:grid; gap:4px; font-weight:600 }
+.call fieldset label { display:flex; gap:6px; align-items:center; font-weight:400 }
+.call input[type=text], .call textarea { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:9px; width:100% }
+button { font:inherit; font-weight:600; background:var(--ink); color:var(--bg); border:0; border-radius:6px; padding:10px 18px; justify-self:start; cursor:pointer }
+.error { color:var(--remove); font-weight:600 }
+.saved { margin-bottom:12px } .saved p { margin:4px 0 0; overflow-wrap:anywhere }
 {% block style %}{% endblock %}
 </style>
 </head>

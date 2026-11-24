@@ -42,19 +42,23 @@ def hhmmss(seconds: int) -> str:
     return f"{seconds // 3600:02d}:{seconds % 3600 // 60:02d}:{seconds % 60:02d}"
 
 
-def route(combined: dict, is_news_report: bool) -> tuple[str, str | None]:
-    """(validation_status, reason). Anything that isn't a clear, validated label goes to a human."""
+NEWS_SAFETY_NET = "news_safety_net"
+
+
+def route(combined: dict, is_news_report: bool) -> tuple[str, str | None, str | None]:
+    """(validation_status, why it was routed, the reason in plain words). Anything that isn't a clear, validated label goes to a human."""
     if combined["status"] == "failed":
-        return ROUTED, "Every answer failed its check or was not returned, so there is no decision."
+        return ROUTED, "failed_check", "Every answer failed its check or was not returned, so there is no decision."
     if combined["status"] == "no majority":
-        return ROUTED, f"The runs did not agree on one valid answer ({combined['agreement']} at most)."
+        return ROUTED, "no_majority", f"The runs did not agree on one valid answer ({combined['agreement']} at most)."
     if combined["decision"]["action"] == "human_review":
-        return ROUTED, "No rule in policy v1.0 fits this clip."
+        return ROUTED, "no_rule_fits", "No rule in policy v1.0 fits this clip."
     if is_news_report and combined["decision"]["action"] == "remove":
         # Checked after validation, not inside it: a retry that says "not remove" would push
         # Gemini into a softer label. The answer is kept as it is and a person decides.
-        return ROUTED, "This upload is marked as a news report, and a news report is never removed automatically."
-    return VALIDATED, None
+        return (ROUTED, NEWS_SAFETY_NET,
+                "This upload is marked as a news report, and a news report is never removed automatically.")
+    return VALIDATED, None, None
 
 
 def shown_findings(decision: dict, pack: dict, segments: list[dict]) -> list[dict]:
@@ -86,7 +90,7 @@ def decide_pack(client, model_id: str, pack_dir: Path, is_news_report: bool) -> 
     with ContextThreadPoolExecutor(RUNS_PER_CLIP) as pool:
         runs = list(pool.map(lambda _: classify(client, model_id, pack_dir), range(RUNS_PER_CLIP)))
     combined = majority(runs)
-    status, reason = route(combined, is_news_report)
+    status, cause, reason = route(combined, is_news_report)
 
     pack = json.loads((pack_dir / "pack.json").read_text())
     segments = json.loads((pack_dir / "transcript.json").read_text())["segments"]
@@ -97,8 +101,10 @@ def decide_pack(client, model_id: str, pack_dir: Path, is_news_report: bool) -> 
         "reasoning": answer["reasoning"] if answer else None,
         "findings": shown_findings(answer, pack, segments) if answer else [],
         "validation_status": status,
+        "routed_cause": cause,
         "routed_reason": reason,
         "langsmith_trace_url": tracing.current_trace_url(),
+        "langsmith_trace_id": tracing.current_trace_id(),
         "agreement": combined["agreement"] if answer else None,
         "is_news_report": is_news_report,
         "model": model_id,

@@ -121,6 +121,8 @@ Upload a clip in the browser and get its decision: one label, the timed findings
 
 A clip is `routed_to_human_review`, with no label, when every run fails the check, the runs don't agree, no policy rule fits, or a clip marked `is_news_report` comes back as remove. The `is_news_report` tick is never sent to Gemini.
 
+**Reviewer's final call:** on the page, a reviewer confirms or changes the decision and saves it with their name and a note (required for a change). It is stored next to the model's answer and trace link in `uploads/<id>/job.json` as `final_calls`: the final decision, the model's decision, whether they agree, and when. The model's answer is never overwritten and earlier calls are kept. The call and whether it agrees are also added to the LangSmith trace as `reviewer_final_call`; the name and note are not sent. For a clip routed to human review the form is on its own page, so the clip's page still shows no label.
+
 ```bash
 .venv/bin/python src/upload_page.py         # http://127.0.0.1:5050, needs GEMINI_API_KEY and LANGSMITH_API_KEY in .env
 .venv/bin/python src/demo_failed_check.py   # http://127.0.0.1:5051, no Gemini calls

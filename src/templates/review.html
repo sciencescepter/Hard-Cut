@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Final call: {{ job.title }}{% endblock %}
+{% block main %}
+<p class="soft"><a href="/uploads/{{ job.id }}">Back to the clip</a></p>
+<h1>{{ job.title }}</h1>
+{% if not job.result.decision %}<p>{{ job.result.routed_reason }}</p>{% else %}<p>Model's answer: {{ job.result.decision }}</p>{% endif %}
+{% include "final_call.html" %}
+{% endblock %}

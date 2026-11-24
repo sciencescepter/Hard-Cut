@@ -14,25 +14,28 @@ import sys
 import time
 import traceback
 import uuid
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, redirect, render_template, request, send_from_directory, url_for
 
 from build_packs import VIDEO_SUFFIXES, probe
+import tracing
 from upload_decision import ROOT, ROUTED, decide_upload, setup
 
 UPLOADS = ROOT / "uploads"
 PORT = 5050
 MAX_UPLOAD_MB = 300
 MAX_CLIP_SECONDS = 600  # longer clips would take many minutes and many tokens
+LABELS = ("allow", "restrict", "remove")
 UPLOAD_ID = re.compile(r"[0-9a-f]{32}")
 
 
 def routed(reason: str) -> dict:
     """The result for a clip that broke on the way: no label, a person looks at it."""
     return {"decision": None, "age_restricted": False, "reasoning": None, "findings": [],
-            "validation_status": ROUTED, "routed_reason": reason, "langsmith_trace_url": None}
+            "validation_status": ROUTED, "routed_cause": "not_processed", "routed_reason": reason, "langsmith_trace_url": None}
 
 
 def create_app(dependencies: dict, uploads: Path = UPLOADS, test_mode: str = "") -> Flask:
@@ -67,6 +70,12 @@ def create_app(dependencies: dict, uploads: Path = UPLOADS, test_mode: str = "")
         job["result"] = result
         save(job)
 
+    @app.before_request
+    def same_site_only():
+        # Another website open in the browser must not be able to upload clips or save calls here.
+        if request.method == "POST" and request.headers.get("Sec-Fetch-Site", "none") not in ("same-origin", "none"):
+            abort(403)
+
     def get_job(upload_id: str) -> dict:
         if not UPLOAD_ID.fullmatch(upload_id) or upload_id not in jobs:
             abort(404)
@@ -74,7 +83,8 @@ def create_app(dependencies: dict, uploads: Path = UPLOADS, test_mode: str = "")
 
     def home(error: str = "", status: int = 200):
         recent = sorted(jobs.values(), key=lambda job: job["started"], reverse=True)
-        queue = [j for j in recent if j["result"] and j["result"]["validation_status"] == ROUTED]
+        queue = [j for j in recent
+                 if j["result"] and j["result"]["validation_status"] == ROUTED and not j.get("final_calls")]
         return render_template("home.html", recent=recent, queue=queue, error=error, test_mode=test_mode,
                                max_minutes=MAX_CLIP_SECONDS // 60), status
 
@@ -119,6 +129,52 @@ def create_app(dependencies: dict, uploads: Path = UPLOADS, test_mode: str = "")
     @app.get("/uploads/<upload_id>")
     def show(upload_id):
         return render_template("decision.html", job=get_job(upload_id), test_mode=test_mode)
+
+    @app.get("/uploads/<upload_id>/review")
+    def review(upload_id):
+        job = get_job(upload_id)
+        if job["result"] is None:
+            return redirect(url_for("show", upload_id=upload_id))
+        return render_template("review.html", job=job, form={}, error="", test_mode=test_mode)
+
+    @app.post("/uploads/<upload_id>/final_call")
+    def final_call(upload_id):
+        """Save a person's final call next to the model's answer. Earlier calls are kept, never overwritten."""
+        job = get_job(upload_id)
+        result = job["result"]
+        if result is None:
+            abort(409)
+        form = {key: request.form.get(key, "").strip()[:limit]
+                for key, limit in (("decision", 20), ("reviewer", 80), ("note", 1000))}
+        model_decision = result["decision"]
+        agrees = form["decision"] == model_decision if model_decision else None  # None: the model gave no answer
+
+        error = ""
+        if form["decision"] not in LABELS:
+            error = "Choose a final call."
+        elif not form["reviewer"]:
+            error = "Enter your name."
+        elif not agrees and not form["note"]:
+            error = "Say why in the note, because this changes the model's answer or fills in a missing one."
+        if error:
+            return render_template("review.html", job=job, form=form, error=error, test_mode=test_mode), 400
+
+        trace_id = result.get("langsmith_trace_id")
+        call = {
+            **form,
+            "model_decision": model_decision,
+            "validation_status": result["validation_status"],
+            "agrees_with_model": agrees,
+            "langsmith_trace_url": result["langsmith_trace_url"],
+            "saved_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        }
+        job.setdefault("final_calls", []).append(call)
+        save(job)
+        if tracing.save_final_call(dependencies.get("langsmith"), trace_id, form["decision"], agrees):
+            call["sent_to_langsmith"] = True
+            save(job)
+        page = "show" if model_decision else "review"
+        return redirect(url_for(page, upload_id=upload_id) + "#final-call", 303)
 
     @app.get("/uploads/<upload_id>/status")
     def status(upload_id):

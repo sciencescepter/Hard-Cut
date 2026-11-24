@@ -83,7 +83,13 @@ check();
 <div class="verdict human"><b style="text-transform:none">Needs human review</b></div>
 {{ clip() }}
 <p>{{ result.routed_reason }}</p>
-<p class="soft">No decision is shown for this clip. It is in the human review queue.</p>
+<p class="soft">No decision is shown for this clip. {% if not job.final_calls %}It is in the human review queue.{% endif %}</p>
+{% endif %}
+
+{% if result and result.decision %}
+{% include "final_call.html" %}
+{% elif result %}
+<p id="final-call">{% if job.final_calls %}A reviewer has made the final call. <a href="/uploads/{{ job.id }}/review">See it</a>{% else %}<a href="/uploads/{{ job.id }}/review">Make the final call</a>{% endif %}</p>
 {% endif %}
 
 {% if result %}

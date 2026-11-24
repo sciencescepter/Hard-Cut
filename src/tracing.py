@@ -45,6 +45,24 @@ def traced(client: Client | None, project: str):
         client.flush()
 
 
+def current_trace_id() -> str | None:
+    run = get_current_run_tree()
+    return str(run.trace_id) if run is not None else None
+
+
+def save_final_call(client: Client | None, trace_id: str | None, decision: str, agrees: bool | None) -> bool:
+    """Attach the reviewer's final call to the trace as feedback. Names and notes stay on this computer."""
+    if client is None or trace_id is None:
+        return False
+    try:
+        client.create_feedback(trace_id, key="reviewer_final_call", value=decision,
+                               score=None if agrees is None else int(agrees))
+        return True
+    except Exception as error:  # the call is already saved locally
+        print(f"could not add the final call to LangSmith ({type(error).__name__})", file=sys.stderr)
+        return False
+
+
 def current_trace_url() -> str | None:
     """The link to the trace being recorded now, or None when tracing is off or the link can't be made."""
     run = get_current_run_tree()

@@ -1,0 +1,22 @@
+<h2 id="final-call">Reviewer's final call</h2>
+{% set last = job.final_calls[-1] if job.final_calls else none %}
+{% for call in (job.final_calls or [])|reverse %}
+<div class="card saved">
+  <strong style="text-transform:capitalize">{{ call.decision }}</strong>
+  {% if call.agrees_with_model %}(confirms the model's answer){% elif call.model_decision %}(changes the model's answer, {{ call.model_decision }}){% else %}(the model gave no answer){% endif %}
+  {% if not loop.first %}<span class="soft">earlier call</span>{% endif %}
+  {% if call.note %}<p>{{ call.note }}</p>{% endif %}
+  <p class="soft">{{ call.reviewer }}, {{ call.saved_at_utc }}{% if call.langsmith_trace_url and call.langsmith_trace_url.startswith("https://") %}, <a href="{{ call.langsmith_trace_url }}" target="_blank" rel="noopener">trace</a>{% endif %}{% if call.sent_to_langsmith %}, also saved on the trace{% endif %}</p>
+</div>
+{% endfor %}
+{% set form = form or {} %}
+<form class="card call" action="/uploads/{{ job.id }}/final_call" method="post">
+  {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+  <fieldset><legend class="soft">{% if last %}Save a new final call{% elif job.result.decision %}Confirm or change the decision{% else %}Make the decision{% endif %}</legend>
+  {% for label in ("allow", "restrict", "remove") %}
+    <label><input type="radio" name="decision" value="{{ label }}" required{% if form.decision == label %} checked{% endif %}> {{ label|capitalize }}{% if label == job.result.decision %} (confirm){% endif %}</label>
+  {% endfor %}</fieldset>
+  <label>Your name <input type="text" name="reviewer" maxlength="80" required value="{{ form.reviewer or '' }}"></label>
+  <label>Note ({% if job.result.decision %}needed if you change the decision{% else %}needed{% endif %}) <textarea name="note" rows="3" maxlength="1000">{{ form.note or '' }}</textarea></label>
+  <button>Save final call</button>
+</form>

@@ -157,3 +157,81 @@ def test_unknown_upload_is_404(tmp_path):
     page = create_app({}, tmp_path).test_client()
     assert page.get("/uploads/../../.env").status_code == 404
     assert page.get("/uploads/" + "0" * 32).status_code == 404
+
+
+# --- the reviewer's final call ---
+
+def call(page, location, decision="restrict", reviewer="Lena", note="", **headers):
+    return page.post(location + "/final_call", data={"decision": decision, "reviewer": reviewer, "note": note}, headers=headers)
+
+
+def saved(tmp_path):
+    return json.loads(next(tmp_path.glob("*/job.json")).read_text())
+
+
+def test_confirming_is_saved_next_to_the_model_answer(tmp_path, video):
+    page, response = post(tmp_path, video, answer())
+    finished(page, response)
+    assert call(page, response.location).status_code == 303
+    job = saved(tmp_path)
+    final = job["final_calls"][-1]
+    assert (final["decision"], final["model_decision"], final["agrees_with_model"]) == ("restrict", "restrict", True)
+    assert "langsmith_trace_url" in final and job["result"]["decision"] == "restrict"
+    assert "confirms the model" in page.get(response.location).text
+    assert "confirmed" in page.get("/").text
+
+
+def test_changing_needs_a_note_and_keeps_the_model_answer_and_history(tmp_path, video):
+    page, response = post(tmp_path, video, answer())
+    finished(page, response)
+    refused = call(page, response.location, "remove", "Lena <b>O</b>")
+    assert refused.status_code == 400 and "Say why" in refused.text and "final_calls" not in saved(tmp_path)
+    assert "<b>O</b>" not in refused.text
+    call(page, response.location, "remove", note="Second kick.")
+    call(page, response.location, "restrict")
+    job = saved(tmp_path)
+    assert [c["decision"] for c in job["final_calls"]] == ["remove", "restrict"]
+    assert job["final_calls"][0]["agrees_with_model"] is False and job["result"]["decision"] == "restrict"
+
+
+@pytest.mark.parametrize("decision, reviewer", [("flag", "Lena"), ("", "Lena"), ("restrict", "  ")])
+def test_bad_final_calls_are_refused(tmp_path, video, decision, reviewer):
+    page, response = post(tmp_path, video, answer())
+    finished(page, response)
+    assert call(page, response.location, decision, reviewer).status_code == 400
+
+
+def test_final_call_on_a_routed_clip_shows_no_label_on_its_page(tmp_path, video):
+    page, response = post(tmp_path, video, BAD)
+    body = finished(page, response).split("<main>")[1].lower()
+    assert "make the final call" in body and 'value="remove"' not in body
+    assert call(page, response.location, "remove", note="Watched it.").location.endswith("/review#final-call")
+    assert saved(tmp_path)["final_calls"][0]["agrees_with_model"] is None
+    body = page.get(response.location).text.split("<main>")[1].lower()
+    assert "a reviewer has made the final call" in body and "remove" not in body
+    assert "Nothing is waiting" in page.get("/").text
+
+
+def test_final_call_before_the_result_or_from_another_site_is_refused(tmp_path, video, monkeypatch):
+    page, response = post(tmp_path, video, answer())
+    finished(page, response)
+    assert call(page, response.location, **{"Sec-Fetch-Site": "cross-site"}).status_code == 403
+    monkeypatch.setattr("upload_page.decide_upload", lambda *a, **k: time.sleep(0.4) or 1 / 0)
+    second = page.post("/uploads", data={"clip": (io.BytesIO(video), "c.mp4"), "title": "t"})
+    assert call(page, second.location).status_code == 409
+    finished(page, second)
+
+
+def test_news_safety_net_is_named(pack):
+    assert decide(pack, REMOVE, news=True)["routed_cause"] == "news_safety_net"
+    assert decide(pack, BAD)["routed_cause"] == "failed_check"
+    assert decide(pack, answer())["routed_cause"] is None
+
+
+def test_final_call_goes_to_the_trace_without_names():
+    import tracing
+    sent = []
+    client = SimpleNamespace(create_feedback=lambda *a, **k: sent.append((a, k)))
+    assert tracing.save_final_call(client, "trace-1", "remove", False)
+    assert sent == [(("trace-1",), {"key": "reviewer_final_call", "value": "remove", "score": 0})]
+    assert not tracing.save_final_call(None, "trace-1", "remove", False)

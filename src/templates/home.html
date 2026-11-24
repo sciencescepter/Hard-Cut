@@ -4,8 +4,6 @@ form { display:grid; gap:14px }
 label { font-weight:600; display:grid; gap:4px }
 label.tick { display:flex; gap:8px; align-items:center; font-weight:400 }
 input[type=text], input[type=file] { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:9px; width:100% }
-button { font:inherit; font-weight:600; background:var(--ink); color:var(--bg); border:0; border-radius:6px; padding:10px 18px; justify-self:start; cursor:pointer }
-.error { color:var(--remove); font-weight:600 }
 ul { list-style:none; margin:0; padding:0 }
 li { display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-top:1px solid var(--line) }
 li:first-child { border-top:0 }
@@ -33,7 +31,7 @@ li span { white-space:nowrap }
 <div class="card">
   {% if recent %}<ul>{% for job in recent %}
     <li><a href="/uploads/{{ job.id }}">{{ job.title }}</a>
-      <span class="soft">{% if not job.result %}Working…{% elif job.result.decision %}{{ job.result.decision|capitalize }}{% if job.result.age_restricted %}, age restricted{% endif %}{% else %}Human review{% endif %}</span></li>
+      <span class="soft">{% if not job.result %}Working…{% elif job.result.decision %}{{ job.result.decision|capitalize }}{% if job.result.age_restricted %}, age restricted{% endif %}{% else %}Human review{% endif %}{% if job.final_calls %}{% if job.final_calls[-1].agrees_with_model %}, confirmed{% elif job.result.decision %}, changed by reviewer{% else %}, reviewed{% endif %}{% endif %}</span></li>
   {% endfor %}</ul>{% else %}<span class="soft">No uploads yet.</span>{% endif %}
 </div>
 {% endblock %}
